@@ -48,7 +48,7 @@ function registerControllerFromPath(path, under, application) {
     });
 }
 
-function eagerLoadControllersFrom(under, application) {
+function eagerLoadEngineControllersFrom(under, application) {
   const paths = Object.keys(parseImportmapJson()).filter((path) =>
     path.match(new RegExp(`^${under}/.+`)),
   );
@@ -59,4 +59,4 @@ function eagerLoadControllersFrom(under, application) {
   });
 }
 
-export { eagerLoadControllersFrom };
+export { eagerLoadEngineControllersFrom };
