@@ -2,7 +2,6 @@ module Aeros::Primitives::Spinner
   class Component < ::Aeros::ApplicationViewComponent
     option(:size, default: proc { :default })
     option(:variant, default: proc { :default })
-    option(:css, optional: true)
 
     def classes
       [

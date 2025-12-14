@@ -1,50 +1,48 @@
 /* Button component styles */
-.c--primitives--button {
-  &--base {
-    border-radius: var(--ui-rounded-button, 0.375rem);
-    padding: 0.625rem 0.875rem;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    cursor: pointer;
-    transition:
-      color 0.15s ease,
-      background-color 0.15s ease,
-      border-color 0.15s ease;
+.cp-button {
+  border-radius: var(--ui-rounded-button, 0.375rem);
+  padding: 0.625rem 0.875rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease;
 
-    &:focus-visible {
-      outline: 2px solid var(--ui-ring, #3b82f6);
-      outline-offset: 2px;
-    }
+  &:focus-visible {
+    outline: 2px solid var(--ui-ring, #3b82f6);
+    outline-offset: 2px;
+  }
 
-    & > span {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      flex-shrink: 1;
-    }
+  & > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-shrink: 1;
+  }
 
-    & > svg {
-      flex-shrink: 0;
-      width: 1rem;
-      height: 1rem;
-    }
+  & > svg {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+  }
 
-    & .spinner {
+  & .spinner {
+    display: none;
+  }
+
+  &.loading {
+    opacity: 0.5;
+    pointer-events: none;
+
+    & .icon {
       display: none;
     }
-
-    &.loading {
-      opacity: 0.5;
-      pointer-events: none;
-
-      & .icon {
-        display: none;
-      }
-      & .spinner {
-        display: flex;
-      }
+    & .spinner {
+      display: flex;
     }
   }
 

@@ -13,7 +13,6 @@ module Aeros::Primitives::InputSlider
     option(:helper_text, optional: true)
     option(:disabled, default: proc { false })
     option(:data, default: proc { {} })
-    option(:css, optional: true)
 
     style do
       base do
