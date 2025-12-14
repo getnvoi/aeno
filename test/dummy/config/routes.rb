@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount Aeros::Engine => "/"
+  mount Aeno::Engine => "/"
 
   # root to: "components#index"
 

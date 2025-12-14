@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Aeros Components</title>
+  <title>Aeno Components</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag "tailwind" %>
   <script>
-    const THEME_KEY = "aeros-theme"
+    const THEME_KEY = "aeno-theme"
     const saved = localStorage.getItem(THEME_KEY)
     if (saved) {
       Object.entries(JSON.parse(saved)).forEach(([name, value]) => {
@@ -19,8 +19,8 @@
     import { Application, Controller } from "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js"
     window.Stimulus = Application.start()
 
-    const THEME_KEY = "aeros-theme"
-    const CONFIG = <%== Aeros::Theme.to_js_config %>
+    const THEME_KEY = "aeno-theme"
+    const CONFIG = <%== Aeno::Theme.to_js_config %>
 
     // Collect all CSS variable names from config
     const VARS = []
@@ -30,7 +30,7 @@
       })
     })
 
-    Stimulus.register("aeros--blocks--floating-info-area", class extends Controller {
+    Stimulus.register("aeno--blocks--floating-info-area", class extends Controller {
       static targets = ["panel", "button", "iconOpen", "iconClose"]
       connect() { this.isOpen = false }
       toggle() { this.isOpen ? this.close() : this.open() }
@@ -259,7 +259,7 @@
       }
     })
 
-    Stimulus.register("aeros--button", class extends Controller {
+    Stimulus.register("aeno--button", class extends Controller {
       connect() {}
       loading() { this.element.classList.add("loading") }
       done() { this.element.classList.remove("loading") }
@@ -271,7 +271,7 @@
     <div class="w-64 flex-shrink-0">
       <%= ui("sidebar", css: "w-64 fixed") do |s| %>
         <% s.with_header do %>
-          <a href="/" class="text-xl font-bold px-4 py-4 block">Aeros</a>
+          <a href="/" class="text-xl font-bold px-4 py-4 block">Aeno</a>
         <% end %>
 
         <% s.with_group(label: "Base") do |g| %>
