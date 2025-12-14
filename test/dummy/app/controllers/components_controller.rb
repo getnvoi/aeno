@@ -2,21 +2,26 @@
 
 class ComponentsController < ApplicationController
   helper Aeros::ApplicationHelper
-  before_action :load_components
+  before_action :load_menu
 
   def index
   end
 
   def show
     @component = params[:id]
+    @group = :base
     render "components/#{@component}"
   end
 
   private
 
-  def load_components
-    @components = Dir.glob(Rails.root.join("app/views/components/*.html.erb")).map do |f|
-      File.basename(f, ".html.erb")
-    end.reject { |c| c == "index" }.sort
+  def load_menu
+    @menu = {
+      base: %w[area button card input theme typography],
+      primitives: %w[spinner],
+      blocks: %w[floating-info-area]
+    }
+    @group ||= nil
+    @component ||= nil
   end
 end
