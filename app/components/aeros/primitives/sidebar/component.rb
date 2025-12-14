@@ -12,8 +12,8 @@ module Aeros::Primitives::Sidebar
       ERB
     end
 
-    renders_many(:items, Aeros::Sidebar::Item)
-    renders_many(:groups, Aeros::Sidebar::Group)
+    renders_many(:items, Aeros::Primitives::Sidebar::Item)
+    renders_many(:groups, Aeros::Primitives::Sidebar::Group)
     renders_one(:header, Header)
     renders_one(:footer, Footer)
 

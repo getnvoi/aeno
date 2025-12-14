@@ -1,2 +1,2 @@
 web: test/dummy/bin/rails s -p3000
-css: test/dummy/bin/rake app:tailwindcss:watch
+css: yarn chokidar "app/components/**/*.css" "app/assets/stylesheets/aeros/source.css" "app/assets/stylesheets/aeros/theme.css" -c "yarn build:css" --initial

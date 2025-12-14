@@ -1,16 +1,13 @@
 # frozen_string_literal: true
 
-class ComponentsController < ApplicationController
+class BlocksController < ApplicationController
   helper Aeros::ApplicationHelper
   before_action :load_menu
 
-  def index
-  end
-
   def show
     @component = params[:id]
-    @group = :base
-    render "components/#{@component}"
+    @group = :blocks
+    render "blocks/#{@component.underscore}"
   end
 
   private
@@ -21,7 +18,5 @@ class ComponentsController < ApplicationController
       primitives: %w[spinner],
       blocks: %w[floating-info-area]
     }
-    @group ||= nil
-    @component ||= nil
   end
 end

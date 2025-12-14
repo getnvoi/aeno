@@ -14,97 +14,15 @@ module Aeros::Primitives::Button
     option(:as, default: proc { :button })
     option(:target, optional: true)
 
-    style do
-      base do
-        %w[
-          rounded-button
-          px-3.5
-          py-2.5
-          font-semibold
-          inline-flex
-          items-center
-          space-x-1
-          focus-visible:outline
-          focus-visible:outline-2
-          focus-visible:outline-offset-2
-          focus-visible:outline-ring
-          cursor-pointer
-          transition-colors
-          [&>span]:truncate
-          [&>span]:flex-shrink
-          [&>svg]:flex-shrink-0
-          [&>svg]:w-4
-          [&>svg]:h-4
-          [&.loading]:opacity-50
-          [&.loading]:pointer-events-none
-          [&.loading_.icon]:hidden
-          [&.loading_.spinner]:flex
-        ]
-      end
-
-      variants do
-        variant do
-          default { "bg-button hover:bg-button-hover text-button-foreground" }
-          secondary { "bg-button-secondary hover:bg-button-secondary-hover text-button-secondary-foreground" }
-          destructive { "bg-button-destructive hover:bg-button-destructive-hover text-button-destructive-foreground" }
-          outline { "border border-button-border bg-background hover:bg-button-outline-hover text-button-outline-foreground" }
-          ghost { "hover:bg-button-ghost-hover text-button-ghost-foreground" }
-          link { "text-link underline-offset-4 hover:underline hover:text-link-hover" }
-        end
-
-        disabled do
-          yes { "pointer-events-none opacity-50" }
-        end
-
-        full do
-          yes { "w-full justify-center" }
-        end
-
-        size do
-          xsmall do
-            %w[
-              px-2.5
-              py-1
-              text-xs
-              rounded-button-sm
-              [&>svg]:w-3
-              [&>svg]:h-3
-              space-x-1
-            ]
-          end
-
-          small do
-            %w[
-              px-3
-              py-1.5
-              text-sm
-              rounded-button-sm
-              [&>svg]:w-4
-              [&>svg]:h-4
-              space-x-1
-            ]
-          end
-
-          large do
-            %w[
-              px-6
-              py-3
-              text-lg
-              rounded-button-lg
-              [&>svg]:w-5
-              [&>svg]:h-5
-              space-x-2
-            ]
-          end
-        end
-      end
-    end
-
     def classes
       [
-        css,
-        style(variant:, disabled:, full:, size:)
-      ].join(" ")
+        class_for("base"),
+        class_for(variant.to_s),
+        size ? class_for(size.to_s) : nil,
+        disabled ? class_for("disabled") : nil,
+        full ? class_for("full") : nil,
+        css
+      ].compact.join(" ")
     end
 
     erb_template <<~ERB
