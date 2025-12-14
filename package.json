@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build:css": "postcss app/assets/stylesheets/aeros/source.css -o app/assets/stylesheets/aeros/application.css"
+    "build:css": "postcss app/assets/stylesheets/aeno/source.css -o app/assets/stylesheets/aeno/application.css"
   },
   "devDependencies": {
     "chokidar-cli": "^3.0.0",

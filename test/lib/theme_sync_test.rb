@@ -2,9 +2,9 @@
 
 require "test_helper"
 
-class Aeros::ThemeSyncTest < ActiveSupport::TestCase
-  COMPONENTS_PATH = Rails.root.join("../app/components/aeros/primitives")
-  THEMES_PATH = Rails.root.join("../app/assets/stylesheets/aeros/themes")
+class Aeno::ThemeSyncTest < ActiveSupport::TestCase
+  COMPONENTS_PATH = Rails.root.join("../app/components/aeno/primitives")
+  THEMES_PATH = Rails.root.join("../app/assets/stylesheets/aeno/themes")
 
   # Variables that are allowed but not in CORNERSTONES schema
   # These are generic/utility variables defined in themes or base.css
@@ -38,7 +38,7 @@ class Aeros::ThemeSyncTest < ActiveSupport::TestCase
   def schema_variables
     @schema_variables ||= begin
       vars = []
-      Aeros::Theme::CORNERSTONES.each_value do |cornerstone|
+      Aeno::Theme::CORNERSTONES.each_value do |cornerstone|
         cornerstone[:properties].each_value do |prop|
           vars << prop[:var]
         end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BlocksController < ApplicationController
-  helper Aeros::ApplicationHelper
+  helper Aeno::ApplicationHelper
   before_action :load_menu
 
   def show

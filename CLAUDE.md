@@ -1,8 +1,8 @@
-# AEROS UI Library - Development Guide
+# AENO UI Library - Development Guide
 
 ## Overview
 
-Aeros is a Rails Engine-based ViewComponent UI library with:
+Aeno is a Rails Engine-based ViewComponent UI library with:
 
 - **ViewComponent + ViewComponentContrib** (dry-initializer pattern)
 - **Stimulus.js** for interactivity
@@ -28,8 +28,8 @@ primitives/component_name/
 ### Main Component Template
 
 ```ruby
-module Aeros::Primitives::MyComponent
-  class Component < ::Aeros::ApplicationViewComponent
+module Aeno::Primitives::MyComponent
+  class Component < ::Aeno::ApplicationViewComponent
     # 1. PROPS - Documented, shown in showcase
     prop :variant, description: "Style variant", values: [:default, :alt], default: -> { :default }
     prop :size, description: "Size option", values: [:sm, :md, :lg], optional: true
@@ -71,8 +71,8 @@ end
 ### Nested Sub-Component Template
 
 ```ruby
-module Aeros::Primitives::MyComponent
-  class Item < ::Aeros::ApplicationViewComponent
+module Aeno::Primitives::MyComponent
+  class Item < ::Aeno::ApplicationViewComponent
     # Use option (not prop) - nested components aren't documented separately
     option :label
     option :active, default: -> { false }
@@ -131,7 +131,7 @@ end
 
 ### CSS Variables
 
-Use variables defined in `lib/aeros/theme.rb` schema:
+Use variables defined in `lib/aeno/theme.rb` schema:
 
 ```css
 background-color: var(--ui-card-bg);
@@ -150,12 +150,12 @@ Ruby schema → CSS layers → User overrides.
 
 | Layer | Source | Purpose |
 |-------|--------|---------|
-| `@layer aeros-base` | Gem defaults | Schema-driven defaults |
-| `@layer aeros-theme` | Preset CSS (slate/zinc) | Color palette |
-| `@layer aeros-config` | Ruby initializer | User configuration |
+| `@layer aeno-base` | Gem defaults | Schema-driven defaults |
+| `@layer aeno-theme` | Preset CSS (slate/zinc) | Color palette |
+| `@layer aeno-config` | Ruby initializer | User configuration |
 | (unlayered) | User's CSS | Final overrides |
 
-### Schema (`lib/aeros/theme.rb`)
+### Schema (`lib/aeno/theme.rb`)
 
 Ruby is the **single source of truth** for what variables exist:
 
@@ -184,8 +184,8 @@ Reference schema variables:
 ### User Configuration (Ruby)
 
 ```ruby
-# config/initializers/aeros.rb
-Aeros.configure do |config|
+# config/initializers/aeno.rb
+Aeno.configure do |config|
   config.theme do |t|
     t.input_bg = "#fafafa"
     t.input_border = "#d1d5db"
@@ -197,13 +197,13 @@ end
 
 ```erb
 <%# In layout <head> %>
-<%= aeros_theme_tag %>
+<%= aeno_theme_tag %>
 ```
 
 Outputs (compressed, in correct layer):
 
 ```html
-<style>@layer aeros-config{:root{--ui-input-bg:#fafafa;--ui-input-border:#d1d5db}}</style>
+<style>@layer aeno-config{:root{--ui-input-bg:#fafafa;--ui-input-border:#d1d5db}}</style>
 ```
 
 ### User CSS Override
@@ -244,7 +244,7 @@ Available: `slate`, `zinc`
 ```ruby
 # Simple class reference (preferred)
 renders_one :header, Header
-renders_many :items, Aeros::Primitives::Table::Row
+renders_many :items, Aeno::Primitives::Table::Row
 
 # Content-only slot (no component)
 renders_one :actions_area
@@ -336,10 +336,10 @@ export default class extends Controller {
 
 ```ruby
 # In component
-stimulus_controller        # { controller: "aeros--my-component" }
-stimulus_target("menu")    # { "aeros--my-component-target" => "menu" }
-stimulus_action("click")   # { action: "click->aeros--my-component#click" }
-stimulus_value("open", v)  # { "aeros--my-component-open-value" => v }
+stimulus_controller        # { controller: "aeno--my-component" }
+stimulus_target("menu")    # { "aeno--my-component-target" => "menu" }
+stimulus_action("click")   # { action: "click->aeno--my-component#click" }
+stimulus_value("open", v)  # { "aeno--my-component-open-value" => v }
 ```
 
 ---
@@ -371,7 +371,7 @@ Tests automatically verify:
 - Component CSS only uses variables defined in schema (`theme.rb`)
 - Theme presets (`themes/*.css`) define all schema variables
 
-Run: `bundle exec rails test test/components/aeros/components_test.rb`
+Run: `bundle exec rails test test/components/aeno/components_test.rb`
 
 ---
 

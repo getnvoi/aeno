@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in aeros.gemspec.
+# Specify your gem's dependencies in aeno.gemspec.
 gemspec
 
 gem "puma"
