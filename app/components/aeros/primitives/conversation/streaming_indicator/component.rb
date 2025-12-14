@@ -2,7 +2,6 @@ module Aeros::Primitives::Conversation::StreamingIndicator
   class Component < ::Aeros::ApplicationViewComponent
     option(:role, default: proc { "assistant" })
     option(:label, default: proc { "Assistant" })
-    option(:css, optional: true)
 
     style do
       base { "py-8 bg-gray-50" }

@@ -212,6 +212,19 @@ module Aeros
           heading_weight: { var: "--ui-heading-weight", type: :font_weight, default: :weight_semibold },
         }
       },
+
+      menu: {
+        label: "Menu",
+        properties: {
+          bg:        { var: "--ui-menu-bg",        type: :color,  default: :background },
+          fg:        { var: "--ui-menu-fg",        type: :color,  default: :foreground },
+          border:    { var: "--ui-menu-border",    type: :color,  default: :border },
+          radius:    { var: "--ui-menu-radius",    type: :length, default: :radius_md },
+          shadow:    { var: "--ui-menu-shadow",    type: :shadow, default: :shadow_lg },
+          padding:   { var: "--ui-menu-padding",   type: :length, default: :spacing_xs },
+          item_radius: { var: "--ui-menu-item-radius", type: :length, default: :radius_sm },
+        }
+      },
     }.freeze
 
     # ═══════════════════════════════════════════════════════════════════════════

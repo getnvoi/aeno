@@ -9,7 +9,6 @@ module Aeros::Primitives::InputColor
     option(:helper_text, optional: true)
     option(:disabled, default: proc { false })
     option(:data, default: proc { {} })
-    option(:css, optional: true)
     option(:size, default: proc { :default })
 
     style do

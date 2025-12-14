@@ -3,7 +3,6 @@ module Aeros::Primitives::Conversation::Message
     option(:role, default: proc { "assistant" })
     option(:content, default: proc { "" })
     option(:timestamp, optional: true)
-    option(:css, optional: true)
 
     style do
       base { "py-8" }
