@@ -4,7 +4,7 @@ module Aeno::Primitives::Dropdown
     option :value, optional: true
 
     renders_many :items, ->(value:, **opts, &block) {
-      RadioItem.new(name: name, value: value, checked: self.value == value, **opts, &block)
+      RadioItem.new(name:, value:, checked: self.value == value, **opts, &block)
     }
 
     erb_template <<~ERB

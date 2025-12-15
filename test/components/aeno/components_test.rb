@@ -15,7 +15,7 @@ class Aeno::ComponentsTest < ViewComponent::TestCase
         class_name = "Aeno::#{namespace.camelize}::#{name.camelize}::Component"
         begin
           klass = class_name.constantize
-          components << { namespace: namespace, name: name, klass: klass }
+          components << { namespace:, name:, klass: }
         rescue NameError, NoMethodError
           # Skip components that can't be loaded
         end

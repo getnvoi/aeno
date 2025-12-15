@@ -56,7 +56,7 @@ module Aeno::Primitives::Button
     end
 
     def call
-      action_tag(href: href, method: method, data: merged_data, class: button_classes, target: target, disabled: disabled) do
+      action_tag(href:, method:, data: merged_data, class: button_classes, target:, disabled:) do
         (icon ? lucide_icon(icon, class: "flex-shrink-0 icon") : "".html_safe) +
           ui("spinner", size: :sm, variant: :white, css: "spinner hidden") +
           (label ? content_tag(:span, label, class: "truncate flex-shrink") : "".html_safe)

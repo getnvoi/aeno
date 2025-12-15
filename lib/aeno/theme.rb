@@ -8,21 +8,21 @@ module Aeno
     # ═══════════════════════════════════════════════════════════════════════════
     PROPERTY_TYPES = {
       color: {
-        widget: :color_picker,
+        widget: :color_picker
       },
       length: {
         widget: :slider,
         unit: "rem",
         min: 0,
         max: 2,
-        step: 0.0625,
+        step: 0.0625
       },
       multiplier: {
         widget: :slider,
         prefix: "×",
         min: 0,
         max: 3,
-        step: 0.1,
+        step: 0.1
       },
       shadow: {
         widget: :button_group,
@@ -50,7 +50,7 @@ module Aeno
           semibold: "600",
           bold: "700"
         }
-      },
+      }
     }.freeze
 
     # ═══════════════════════════════════════════════════════════════════════════
@@ -109,7 +109,7 @@ module Aeno
       weight_normal:   "400",
       weight_medium:   "500",
       weight_semibold: "600",
-      weight_bold:     "700",
+      weight_bold:     "700"
     }.freeze
 
     # ═══════════════════════════════════════════════════════════════════════════
@@ -127,7 +127,7 @@ module Aeno
           radius:      { var: "--ui-button-radius",      type: :length,      default: :radius_md, max: 1 },
           padding_x:   { var: "--ui-button-px",          type: :length,      default: :spacing_md, max: 2 },
           padding_y:   { var: "--ui-button-py",          type: :length,      default: :spacing_sm, max: 1.5 },
-          font_weight: { var: "--ui-button-weight",      type: :font_weight, default: :weight_semibold },
+          font_weight: { var: "--ui-button-weight",      type: :font_weight, default: :weight_semibold }
         }
       },
 
@@ -142,7 +142,7 @@ module Aeno
           placeholder:  { var: "--ui-input-placeholder",  type: :color,  default: :muted_fg },
           radius:       { var: "--ui-input-radius",       type: :length, default: :radius_md, max: 1 },
           padding_x:    { var: "--ui-input-px",           type: :length, default: :spacing_md, max: 1.5 },
-          padding_y:    { var: "--ui-input-py",           type: :length, default: :spacing_sm, max: 1 },
+          padding_y:    { var: "--ui-input-py",           type: :length, default: :spacing_sm, max: 1 }
         }
       },
 
@@ -154,7 +154,7 @@ module Aeno
           border:  { var: "--ui-card-border",  type: :color,  default: :border },
           radius:  { var: "--ui-card-radius",  type: :length, default: :radius_lg, max: 1.5 },
           padding: { var: "--ui-card-padding", type: :length, default: :spacing_xl, max: 3 },
-          shadow:  { var: "--ui-card-shadow",  type: :shadow, default: :shadow_sm },
+          shadow:  { var: "--ui-card-shadow",  type: :shadow, default: :shadow_sm }
         }
       },
 
@@ -167,7 +167,7 @@ module Aeno
           overlay: { var: "--ui-sheet-overlay", type: :color,  default: :overlay },
           radius:  { var: "--ui-sheet-radius",  type: :length, default: :radius_xl, max: 2 },
           padding: { var: "--ui-sheet-padding", type: :length, default: :spacing_xl, max: 3 },
-          shadow:  { var: "--ui-sheet-shadow",  type: :shadow, default: :shadow_xl },
+          shadow:  { var: "--ui-sheet-shadow",  type: :shadow, default: :shadow_xl }
         }
       },
 
@@ -178,7 +178,7 @@ module Aeno
           fg:      { var: "--ui-area-fg",      type: :color,  default: :foreground },
           border:  { var: "--ui-area-border",  type: :color,  default: :border },
           radius:  { var: "--ui-area-radius",  type: :length, default: :radius_xl, max: 2 },
-          padding: { var: "--ui-area-padding", type: :length, default: :spacing_2xl, max: 4 },
+          padding: { var: "--ui-area-padding", type: :length, default: :spacing_2xl, max: 4 }
         }
       },
 
@@ -193,7 +193,7 @@ module Aeno
           row_hover:    { var: "--ui-table-row-hover",    type: :color,  default: :muted },
           row_stripe:   { var: "--ui-table-row-stripe",   type: :color,  default: :muted },
           radius:       { var: "--ui-table-radius",       type: :length, default: :radius_lg, max: 1 },
-          cell_padding: { var: "--ui-table-cell-padding", type: :length, default: :spacing_md, max: 1.5 },
+          cell_padding: { var: "--ui-table-cell-padding", type: :length, default: :spacing_md, max: 1.5 }
         }
       },
 
@@ -209,7 +209,7 @@ module Aeno
           code_fg:        { var: "--ui-code-fg",        type: :color,       default: :foreground },
           font_sans:      { var: "--ui-font-sans",      type: :font_family, default: :font_sans },
           font_mono:      { var: "--ui-font-mono",      type: :font_family, default: :font_mono },
-          heading_weight: { var: "--ui-heading-weight", type: :font_weight, default: :weight_semibold },
+          heading_weight: { var: "--ui-heading-weight", type: :font_weight, default: :weight_semibold }
         }
       },
 
@@ -222,9 +222,9 @@ module Aeno
           radius:    { var: "--ui-menu-radius",    type: :length, default: :radius_md },
           shadow:    { var: "--ui-menu-shadow",    type: :shadow, default: :shadow_lg },
           padding:   { var: "--ui-menu-padding",   type: :length, default: :spacing_xs },
-          item_radius: { var: "--ui-menu-item-radius", type: :length, default: :radius_sm },
+          item_radius: { var: "--ui-menu-item-radius", type: :length, default: :radius_sm }
         }
-      },
+      }
     }.freeze
 
     # ═══════════════════════════════════════════════════════════════════════════

@@ -12,11 +12,11 @@ class PrimitivesController < ApplicationController
 
   private
 
-  def load_menu
-    @menu = {
-      base: %w[area button card input theme typography],
-      primitives: %w[spinner],
-      blocks: %w[floating-info-area]
-    }
-  end
+    def load_menu
+      @menu = {
+        base: %w[area button card input theme typography],
+        primitives: %w[spinner],
+        blocks: %w[floating-info-area]
+      }
+    end
 end

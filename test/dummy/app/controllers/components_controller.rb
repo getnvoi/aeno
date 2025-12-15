@@ -15,13 +15,13 @@ class ComponentsController < ApplicationController
 
   private
 
-  def load_menu
-    @menu = {
-      base: %w[area button card input theme typography],
-      primitives: %w[spinner],
-      blocks: %w[floating-info-area]
-    }
-    @group ||= nil
-    @component ||= nil
-  end
+    def load_menu
+      @menu = {
+        base: %w[area button card input theme typography],
+        primitives: %w[spinner],
+        blocks: %w[floating-info-area]
+      }
+      @group ||= nil
+      @component ||= nil
+    end
 end

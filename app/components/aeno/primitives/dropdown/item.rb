@@ -19,7 +19,7 @@ module Aeno::Primitives::Dropdown
     end
 
     def call
-      action_tag(href: href, method: method, data: item_data, form_data: form_data, class: item_classes, role: "menuitem", disabled: disabled) do
+      action_tag(href:, method:, data: item_data, form_data:, class: item_classes, role: "menuitem", disabled:) do
         (icon ? lucide_icon(icon, class: "cp-dropdown__item-icon") : "".html_safe) +
           content_tag(:span, content, class: "cp-dropdown__item-label") +
           (shortcut ? content_tag(:span, shortcut, class: "cp-dropdown__item-shortcut") : "".html_safe)

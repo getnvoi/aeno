@@ -61,7 +61,7 @@ module Aeno
       end
 
       def example(key, title:, description: nil, &block)
-        ex = Example.new(key, title: title, description: description)
+        ex = Example.new(key, title:, description:)
         block.call(ex) if block
         @examples << ex
       end
@@ -72,7 +72,7 @@ module Aeno
     end
 
     def self.examples(title, description: nil, &block)
-      @examples_config = { title: title, description: description, examples: [] }
+      @examples_config = { title:, description:, examples: [] }
       builder = ExamplesBuilder.new
       block.call(builder) if block
       @examples_config[:examples] = builder.examples
@@ -208,11 +208,11 @@ module Aeno
     # - button_tag for action buttons
     def action_tag(href: nil, method: nil, data: {}, form_data: {}, **opts, &block)
       if method && href
-        helpers.button_to(href, method: method, data: data, form: { data: form_data }, **opts, &block)
+        helpers.button_to(href, method:, data:, form: { data: form_data }, **opts, &block)
       elsif href
-        helpers.link_to(href, data: data, **opts, &block)
+        helpers.link_to(href, data:, **opts, &block)
       else
-        helpers.button_tag(type: "button", data: data, **opts, &block)
+        helpers.button_tag(type: "button", data:, **opts, &block)
       end
     end
   end
