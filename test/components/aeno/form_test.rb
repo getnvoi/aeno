@@ -256,4 +256,38 @@ class Aeno::FormTest < ViewComponent::TestCase
     # Submit button
     assert_selector "button[type='submit']", text: "Update Contact"
   end
+
+  def test_nested_form_with_no_existing_records_shows_no_default_entries
+    # Create contact WITHOUT any siblings
+    contact = Contact.create!(name: "Solo Contact", email: "solo@example.com")
+
+    render_inline(TestPrepopulatedWrapperComponent.new(contact: contact))
+
+    # Should have the nested form section with label
+    assert_selector "h3", text: "Siblings"
+
+    # Should have the Add button
+    assert_selector "button", text: "+ Add Sibling"
+
+    # Should have the hidden template
+    assert_selector "div[data-aeno--form-target='template'].hidden", visible: false
+
+    # Should have the target div (where new entries will be added)
+    assert_selector "div[data-aeno--form-target='target']"
+
+    # CRITICAL: Should NOT have any visible sibling entries
+    # Check that no visible sibling inputs exist (only in template)
+    visible_sibling_inputs = page.all("input[name*='[siblings_attributes]'][name*='[name]']", visible: true)
+    assert_equal 0, visible_sibling_inputs.count, "Should have 0 visible sibling inputs when no existing records"
+
+    # Verify no visible Remove buttons (only in template)
+    visible_remove_buttons = page.all("button", text: "Remove", visible: true)
+    assert_equal 0, visible_remove_buttons.count, "Should have 0 visible Remove buttons when no existing records"
+
+    # Verify template still exists and contains the fields (but hidden)
+    template = page.find("div[data-aeno--form-target='template'].hidden", visible: false)
+    template_html = template.native.inner_html
+    assert_includes template_html, "NEW_RECORD", "Template should contain NEW_RECORD placeholder"
+    assert_includes template_html, "Sibling Name", "Template should contain sibling fields"
+  end
 end

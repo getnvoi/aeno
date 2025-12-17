@@ -6,8 +6,12 @@
   <%# Template for NEW records %>
   <div data-aeno--form-target="template" class="hidden">
     <%
-      association = form_builder.object.class.reflect_on_association(name)
-      template_object = association.klass.new
+      if form_builder.object
+        association = form_builder.object.class.reflect_on_association(name)
+        template_object = association.klass.new
+      else
+        template_object = nil
+      end
     %>
     <%= form_builder.fields_for(name, template_object, child_index: 'NEW_RECORD') do |nested_builder| %>
       <fieldset disabled>
@@ -29,22 +33,24 @@
 
   <%# Existing records with fields_for %>
   <div data-aeno--form-target="target">
-    <%= form_builder.fields_for(name) do |nested_builder| %>
-      <div class="<%= wrapper_selector.delete('.') %> rounded-lg border border-gray-300 p-4 mb-4" data-new-record="false">
-        <%= render_nested_form(nested_builder) %>
+    <% if form_builder.object&.public_send(name)&.any? %>
+      <%= form_builder.fields_for(name) do |nested_builder| %>
+        <div class="<%= wrapper_selector.delete('.') %> rounded-lg border border-gray-300 p-4 mb-4" data-new-record="false">
+          <%= render_nested_form(nested_builder) %>
 
-        <div class="mt-4 flex justify-end">
-          <button type="button" data-action="aeno--form#remove" class="text-sm font-semibold text-red-600 hover:text-red-500">
-            <%= remove_button_label %>
-          </button>
+          <div class="mt-4 flex justify-end">
+            <button type="button" data-action="aeno--form#remove" class="text-sm font-semibold text-red-600 hover:text-red-500">
+              <%= remove_button_label %>
+            </button>
+          </div>
+          <% if allow_destroy %>
+            <%= nested_builder.hidden_field :_destroy, value: "0" %>
+          <% end %>
+          <% if nested_builder.object&.persisted? %>
+            <%= nested_builder.hidden_field :id %>
+          <% end %>
         </div>
-        <% if allow_destroy %>
-          <%= nested_builder.hidden_field :_destroy, value: "0" %>
-        <% end %>
-        <% if nested_builder.object&.persisted? %>
-          <%= nested_builder.hidden_field :id %>
-        <% end %>
-      </div>
+      <% end %>
     <% end %>
   </div>
 
