@@ -1,5 +1,5 @@
-<%= form_with(model: contact, url: "/contacts/#{contact.id}", method: :patch) do |f| %>
-  <%= render(Aeno::Form::Component.new(form_builder: f)) do |component| %>
+<%= form_with(model: contact, url: "/contacts/#{contact.id}", method: :patch, data: { controller: "aeno--form" }) do |f| %>
+  <%= render(Aeno::Form::LayoutComponent.new(form_builder: f)) do |component| %>
     <% component.with_item_input(type: :text, name: "email", label: "Email") %>
     <% component.with_item_input(type: :text, name: "name", label: "Name") %>
 

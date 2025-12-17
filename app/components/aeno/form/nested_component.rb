@@ -18,7 +18,7 @@ module Aeno::Form
     end
 
     def render_nested_form(builder)
-      form = Aeno::Form::Component.new(form_builder: builder)
+      form = Aeno::Form::LayoutComponent.new(form_builder: builder)
       @content_block.call(form) if @content_block
       render(form)
     end

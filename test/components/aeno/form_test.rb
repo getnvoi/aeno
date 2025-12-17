@@ -32,7 +32,7 @@ class TestWrapperComponent < ViewComponent::Base
 
   erb_template <<~ERB
     <%= form_with(model: contact, url: "/contacts", method: :post, data: { controller: "aeno--form" }) do |f| %>
-      <%= render(Aeno::Form::Component.new(form_builder: f)) do |component| %>
+      <%= render(Aeno::Form::LayoutComponent.new(form_builder: f)) do |component| %>
         <% component.with_item_input(type: :text, name: "email", label: "Email") %>
 
         <% component.with_item_group(title: "Contact Information") do |g| %>
@@ -70,8 +70,8 @@ class TestPrepopulatedWrapperComponent < ViewComponent::Base
   end
 
   erb_template <<~ERB
-    <%= form_with(model: contact, url: "/contacts/1", method: :patch) do |f| %>
-      <%= render(Aeno::Form::Component.new(form_builder: f)) do |component| %>
+    <%= form_with(model: contact, url: "/contacts/\#{contact.id}", method: :patch, data: { controller: "aeno--form" }) do |f| %>
+      <%= render(Aeno::Form::LayoutComponent.new(form_builder: f)) do |component| %>
         <% component.with_item_input(type: :text, name: "email", label: "Email") %>
         <% component.with_item_input(type: :text, name: "name", label: "Name") %>
 
