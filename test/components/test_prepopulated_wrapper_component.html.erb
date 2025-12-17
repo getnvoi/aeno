@@ -1,0 +1,19 @@
+<%= form_with(model: contact, url: "/contacts/#{contact.id}", method: :patch) do |f| %>
+  <%= render(Aeno::Form::Component.new(form_builder: f)) do |component| %>
+    <% component.with_item_input(type: :text, name: "email", label: "Email") %>
+    <% component.with_item_input(type: :text, name: "name", label: "Name") %>
+
+    <% component.with_item_group(title: "Siblings") do |g| %>
+      <% g.with_item_nested(name: :siblings, label: "Siblings") do |s| %>
+        <% s.with_item_input(type: :text, name: "name", label: "Sibling Name") %>
+        <% s.with_item_input(type: :text, name: "age", label: "Age") %>
+
+        <% s.with_item_nested(name: :phones, label: "Phone Numbers") do |p| %>
+          <% p.with_item_input(type: :text, name: "number", label: "Number") %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <% component.with_submit(label: "Update Contact", variant: :primary, type: "submit") %>
+  <% end %>
+<% end %>

@@ -1,30 +1,12 @@
-<%= content_tag :form, action: url, method: (method == :get ? :get : :post), data: (data || {}).merge(controller: controller_name, action: "submit->#{controller_name}#submit", "#{controller_name}-debug-value": debug.to_s), class: css do %>
-  <% if method != :get && method != :post %>
-    <input type="hidden" name="_method" value="<%= method %>" />
+<div class="space-y-12">
+  <% items.each do |item| %>
+    <%= item %>
   <% end %>
 
-  <div class="space-y-12">
-    <% groups.each do |group| %>
-      <%= group %>
-    <% end %>
-
-    <% rows.each do |row| %>
-      <%= row %>
-    <% end %>
-
-    <% inputs.each do |input| %>
-      <%= input %>
-    <% end %>
-
-    <% if submit? || action? %>
-      <div class="mt-6 flex items-center justify-end gap-x-6">
-        <% if action? %>
-          <%= action %>
-        <% end %>
-        <% if submit? %>
-          <%= submit %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+  <% if submit || action %>
+    <div class="mt-6 flex items-center justify-end gap-x-6">
+      <%= action %>
+      <%= submit %>
+    </div>
+  <% end %>
+</div>

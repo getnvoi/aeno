@@ -1,5 +1,5 @@
-<% inputs.each_with_index do |input, index| %>
-  <div class="<%= css || 'sm:col-span-3' %>">
-    <%= input %>
-  </div>
-<% end %>
+<div class="<%= css || 'grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6' %> sm:col-span-full">
+  <% items.each do |item| %>
+    <%= item %>
+  <% end %>
+</div>

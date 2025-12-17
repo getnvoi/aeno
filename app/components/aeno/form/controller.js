@@ -92,7 +92,7 @@ export default class extends Controller {
 
   setNestedValue(obj, path, value) {
     // Parse Rails nested attributes: "siblings_attributes[123][name]"
-    const keys = path.split(/[\[\]]+/).filter(k => k);
+    const keys = path.split(/[\[\]]+/).filter((k) => k);
 
     let current = obj;
     for (let i = 0; i < keys.length - 1; i++) {

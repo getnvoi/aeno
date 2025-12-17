@@ -1,34 +1,13 @@
 module Aeno::Form
   class GroupComponent < ::Aeno::ApplicationViewComponent
-    renders_many :inputs, lambda { |**opts|
-      Aeno::Input::Component.new(**resolve_input_options(opts))
-    }
-
-    renders_many :rows, RowComponent
-    renders_many :nesteds, NestedComponent
-
     option :title
     option :description, optional: true
-    option :model, optional: true
+    option :form_builder
 
-    private
-
-    def model_name
-      @model_name ||= model&.class&.model_name&.param_key
-    end
-
-    def resolve_input_options(opts)
-      return opts unless model && opts[:name]
-
-      field_name = opts[:name].to_s
-      value = opts[:value] || model.send(field_name) if model.respond_to?(field_name)
-      error_text = model.errors[field_name].first if model.respond_to?(:errors)
-
-      opts.merge(
-        name: model_name ? "#{model_name}[#{field_name}]" : field_name,
-        value: value,
-        error_text: error_text
-      ).compact
-    end
+    renders_many :items, types: {
+      input: ->(**args) { Aeno::Input::Component.new(form_builder: form_builder, **args) },
+      row: ->(**args) { RowComponent.new(form_builder: form_builder, **args) },
+      nested: ->(**args, &block) { NestedComponent.new(form_builder: form_builder, **args, &block) }
+    }
   end
 end

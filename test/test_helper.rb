@@ -8,6 +8,14 @@ require "rails/test_help"
 require "capybara/minitest"
 require "view_component/test_helpers"
 require "view_component/test_case"
+require "active_record"
+
+# Establish database connection
+ActiveRecord::Base.establish_connection(
+  adapter: "sqlite3",
+  database: ":memory:"
+)
+
 
 class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here
