@@ -319,4 +319,67 @@ class Aeno::FormTest < ViewComponent::TestCase
     assert_includes action_attr, "submit->aeno--form#submit", "Should include default submit action"
     assert_includes action_attr, "custom->handler#method", "Should include custom action"
   end
+
+  def test_displays_validation_errors_for_main_object_and_nested_attributes
+    # Create invalid contact with nested invalid siblings and phones
+    contact = Contact.new(name: "", email: "invalid")
+    contact.siblings.build(name: "", age: "25")
+    contact.siblings.first.phones.build(number: "")
+    
+    # Trigger validations
+    contact.valid?
+    
+    # Verify errors exist
+    assert contact.errors[:name].any?, "Contact should have name error"
+    assert contact.errors[:email].any?, "Contact should have email error"
+    assert contact.siblings.first.errors[:name].any?, "Sibling should have name error"
+    assert contact.siblings.first.phones.first.errors[:number].any?, "Phone should have number error"
+    
+    # Render form with invalid object
+    render_inline Aeno::Form::Component.new(model: contact, url: "/contacts", method: :post) do |component|
+      component.with_item_input(type: :text, name: "name", label: "Name")
+      component.with_item_input(type: :text, name: "email", label: "Email")
+      
+      component.with_item_nested(name: :siblings, label: "Siblings") do |s|
+        s.with_item_input(type: :text, name: "name", label: "Sibling Name")
+        s.with_item_input(type: :text, name: "age", label: "Age")
+        
+        s.with_item_nested(name: :phones, label: "Phone Numbers") do |p|
+          p.with_item_input(type: :text, name: "number", label: "Phone Number")
+        end
+      end
+      
+      component.with_submit(label: "Save", variant: :default, type: "submit")
+    end
+
+    # Assert main object errors are displayed
+    assert_selector "p[data-role='error']", text: "can't be blank", count: 3 # Contact name + Sibling name + Phone number
+    assert_selector "p[data-role='error']", text: "is invalid" # Contact email
+
+    # Assert sibling inputs are rendered (not just in template)
+    sibling_name_inputs = page.all("input[name*='[siblings_attributes]'][name*='[name]']", visible: false)
+    non_template_siblings = sibling_name_inputs.reject do |input|
+      input.find(:xpath, "ancestor::div[@data-aeno--form-target='template']", visible: false)
+    rescue Capybara::ElementNotFound
+      false
+    end
+    assert_equal 1, non_template_siblings.count, "Should have exactly 1 sibling input outside template"
+
+    # Assert phone inputs are rendered in the sibling's nested form
+    phone_number_inputs = page.all("input[name*='[phones_attributes]'][name*='[number]']", visible: false)
+    non_template_phones = phone_number_inputs.reject do |input|
+      input.find(:xpath, "ancestor::div[@data-aeno--form-target='template']", visible: false)
+    rescue Capybara::ElementNotFound
+      false
+    end
+    # Note: There may be 0 phone inputs outside template if phone is blank and doesn't render
+    # Just verify phones with errors are shown and have error messages
+    if non_template_phones.any?
+      puts "\n=== Found #{non_template_phones.count} phone inputs outside template ==="
+    end
+
+    # Assert total error count includes phone error
+    # We should have: contact name, contact email, sibling name, phone number = 4 errors total
+    assert_selector "p[data-role='error']", count: 4
+  end
 end

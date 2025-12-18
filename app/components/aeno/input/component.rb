@@ -56,11 +56,11 @@ module Aeno::Input
     end
 
     def error_html
-      content_tag(:p, error_text, class: "mt-1 text-sm text-red-600")
+      content_tag(:p, error_text, class: "mt-1 text-sm text-red-600", data: { role: "error" })
     end
 
     def helper_html
-      content_tag(:p, helper_text, class: "mt-1 text-sm text-gray-500")
+      content_tag(:p, helper_text, class: "mt-1 text-sm text-gray-500", data: { role: "helper" })
     end
 
     examples("Input", description: "Form input components") do |b|
