@@ -26,11 +26,11 @@ module Aeno
         end
 
         def preview(**props, &block)
-          @previews << ExamplePreview.new(props, block: block)
+          @previews << ExamplePreview.new(props, block:)
         end
 
         def preview_template(template:, **props)
-          @previews << ExamplePreview.new(props, template: template)
+          @previews << ExamplePreview.new(props, template:)
         end
       end
 
