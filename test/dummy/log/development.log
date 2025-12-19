@@ -28585,3 +28585,25 @@ Started GET "/.well-known/appspecific/com.chrome.devtools.json" for ::1 at 2025-
   
 ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
   
+Started GET "/showcase/table" for ::1 at 2025-12-19 08:36:01 +0100
+Processing by Aeno::ShowcaseController#show as HTML
+  Parameters: {"id" => "table"}
+  Rendering layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb
+  Rendering /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application (Duration: 2.0ms | GC: 0.0ms)
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/shared/_theme_editor.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb (Duration: 37.0ms | GC: 12.0ms)
+Completed 200 OK in 49ms (Views: 37.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 12.0ms)
+
+
+Started GET "/showcase/table" for ::1 at 2025-12-19 08:36:54 +0100
+Processing by Aeno::ShowcaseController#show as HTML
+  Parameters: {"id" => "table"}
+  Rendering layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb
+  Rendering /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application (Duration: 51.1ms | GC: 14.7ms)
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/shared/_theme_editor.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb (Duration: 87.9ms | GC: 29.3ms)
+Completed 200 OK in 101ms (Views: 88.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 29.3ms)
+
+

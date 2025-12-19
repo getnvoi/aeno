@@ -1,10 +1,39 @@
-<div class="overflow-x-auto" data-controller="<%= controller_name %>">
-  <table class="<%= table_classes %>" <%= "id=\"#{id}\"" if id %>>
-    <%= header if header? %>
-    <tbody class="bg-white divide-y divide-gray-200">
-      <% rows.each do |row| %>
-        <%= row %>
+<div <% if controller_name %>data-controller="<%= controller_name %>"<% end %> class="w-full">
+  <%# Batch actions toolbar (hidden by default, shown when rows selected) %>
+  <% if selectable && batch_actions.any? %>
+    <div data-aeno--table-target="batchToolbar" class="hidden mb-4 p-4 bg-gray-50 rounded-lg flex items-center justify-between">
+      <span data-aeno--table-target="selectedCount" class="text-sm font-medium text-gray-700"></span>
+      <div class="flex gap-2">
+        <% batch_actions.each do |action| %>
+          <%= action %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <%# Filters toolbar (always visible when filters exist) %>
+  <% if filters.any? %>
+    <div class="mb-4 flex gap-2 items-center">
+      <% filters.each do |filter| %>
+        <%= filter %>
       <% end %>
-    </tbody>
-  </table>
+    </div>
+  <% end %>
+
+  <%# Table %>
+  <div class="overflow-x-auto min-w-0">
+    <table class="<%= table_classes %>" <%= "id=\"#{id}\"" if id %>>
+      <%= header if header? %>
+      <tbody class="bg-white divide-y divide-gray-200">
+        <% rows.each do |row| %>
+          <%= row %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%# Pagination %>
+  <% if pagination? %>
+    <%= pagination %>
+  <% end %>
 </div>
