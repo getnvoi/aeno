@@ -2,7 +2,7 @@
   <% if collection && value_method && label_method %>
     <% current_values = value.is_a?(Array) ? value.map(&:to_s) : [] %>
     <% collection.each do |item| %>
-      <%= ui("checkbox",
+      <%= render Aeno::Input::Checkbox::Component.new(
         name: "#{name}[]",
         value: item.send(value_method),
         label: item.send(label_method),
@@ -13,7 +13,7 @@
   <% else %>
     <% current_values = value.is_a?(Array) ? value.map(&:to_s) : [] %>
     <% options.each do |option| %>
-      <%= ui("checkbox",
+      <%= render Aeno::Input::Checkbox::Component.new(
         name: "#{name}[]",
         value: option.value,
         label: option.label,

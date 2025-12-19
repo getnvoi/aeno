@@ -1,0 +1,48 @@
+<div class="flex items-center justify-between px-2 py-4">
+  <div class="text-sm text-gray-500">
+    <% if selected_count && selected_count > 0 %>
+      <%= selected_count %> <%= translations[:of] %> <%= total_count %> <%= translations[:selected] %>
+    <% end %>
+  </div>
+
+  <div class="flex items-center space-x-6">
+    <div class="flex items-center space-x-2">
+      <span class="text-sm truncate"><%= translations[:per_page] %></span>
+      <%= render Aeno::Input::Select::Component.new(
+        name: "per_page",
+        id: "per_page",
+        value: per_page.to_s,
+        data: {
+          action: "change->aeno--table#changePerPage",
+          "aeno--table-url-value": url || helpers.request.path
+        }
+      ) do |s|
+        per_page_options.each do |size|
+          s.with_option(value: size.to_s, label: size.to_s)
+        end
+      end %>
+    </div>
+
+    <span class="text-sm text-gray-700">
+      <%= translations[:page] %> <%= current_page %> <%= translations[:of] %> <%= total_pages %>
+    </span>
+
+    <div class="flex items-center space-x-2">
+      <%= link_to page_url(1), data: { turbo_action: "replace" }, class: "inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 #{!can_previous? ? 'pointer-events-none opacity-50' : ''}" do %>
+        <%= lucide_icon("chevrons-left", class: "size-4") %>
+      <% end %>
+
+      <%= link_to page_url(current_page - 1), data: { turbo_action: "replace" }, class: "inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 #{!can_previous? ? 'pointer-events-none opacity-50' : ''}" do %>
+        <%= lucide_icon("chevron-left", class: "size-4") %>
+      <% end %>
+
+      <%= link_to page_url(current_page + 1), data: { turbo_action: "replace" }, class: "inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 #{!can_next? ? 'pointer-events-none opacity-50' : ''}" do %>
+        <%= lucide_icon("chevron-right", class: "size-4") %>
+      <% end %>
+
+      <%= link_to page_url(total_pages), data: { turbo_action: "replace" }, class: "inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 #{!can_next? ? 'pointer-events-none opacity-50' : ''}" do %>
+        <%= lucide_icon("chevrons-right", class: "size-4") %>
+      <% end %>
+    </div>
+  </div>
+</div>

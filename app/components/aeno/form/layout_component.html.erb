@@ -1,12 +1,16 @@
 <div data-role="layout" class="w-full <%= css %>">
-  <% items.each do |item| %>
-    <%= item %>
-  <% end %>
-
-  <% if submit || action %>
-    <div>
-      <%= action %>
-      <%= submit %>
+  <div data-role="layout-body">
+    <div data-role="layout-content">
+      <% items.each do |item| %>
+        <%= item %>
+      <% end %>
     </div>
-  <% end %>
+
+    <% if submit || action %>
+      <div data-role="layout-footer">
+        <%= action %>
+        <%= submit %>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -1,0 +1,31 @@
+<% if description %>
+  <div class="flex gap-3">
+    <div class="flex h-6 shrink-0 items-center">
+      <%= render Aeno::Checkbox::Component.new(
+        name: name,
+        value: value,
+        checked: checked,
+        disabled: disabled,
+        id: checkbox_id,
+        aria: { describedby: "#{checkbox_id}-description" }
+      ) %>
+    </div>
+    <div class="text-sm/6">
+      <%= label_tag(checkbox_id, label, class: "font-medium text-gray-900 dark:text-white") %>
+      <p id="<%= checkbox_id %>-description" class="text-gray-500 dark:text-gray-400"><%= description %></p>
+    </div>
+  </div>
+<% else %>
+  <div class="flex items-center gap-x-3">
+    <div class="flex h-6 shrink-0 items-center">
+      <%= render Aeno::Checkbox::Component.new(
+        name: name,
+        value: value,
+        checked: checked,
+        disabled: disabled,
+        id: checkbox_id
+      ) %>
+    </div>
+    <%= label_tag(checkbox_id, label, class: "block text-sm/6 font-medium text-gray-900 dark:text-white") %>
+  </div>
+<% end %>

@@ -12,12 +12,18 @@
 
 ActiveRecord::Schema[8.1].define(version: 2025_12_18_091105) do
   create_table "contacts", force: :cascade do |t|
+    t.text "bio"
     t.string "city"
+    t.string "company"
     t.datetime "created_at", null: false
     t.string "email"
+    t.string "location"
     t.string "name"
+    t.string "phone"
+    t.string "role"
     t.string "state"
     t.datetime "updated_at", null: false
+    t.string "website"
   end
 
   create_table "phones", force: :cascade do |t|
