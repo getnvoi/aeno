@@ -28607,3 +28607,119 @@ Processing by Aeno::ShowcaseController#show as HTML
 Completed 200 OK in 101ms (Views: 88.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 29.3ms)
 
 
+Started GET "/showcase/table" for ::1 at 2025-12-19 08:37:23 +0100
+Processing by Aeno::ShowcaseController#show as HTML
+  Parameters: {"id" => "table"}
+  Rendering layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb
+  Rendering /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application (Duration: 27.6ms | GC: 5.1ms)
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/shared/_theme_editor.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb (Duration: 43.7ms | GC: 8.6ms)
+Completed 200 OK in 46ms (Views: 43.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 8.6ms)
+
+
+Started GET "/showcase/form" for ::1 at 2025-12-19 08:37:28 +0100
+Processing by Aeno::ShowcaseController#show as HTML
+  Parameters: {"id" => "form"}
+  Rendering layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb
+  Rendering /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application (Duration: 46.5ms | GC: 7.0ms)
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/shared/_theme_editor.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb (Duration: 62.3ms | GC: 10.3ms)
+Completed 200 OK in 90ms (Views: 62.3ms | ActiveRecord: 0.8ms (0 queries, 0 cached) | GC: 10.6ms)
+
+
+Started GET "/showcase/dropdown" for ::1 at 2025-12-19 08:37:29 +0100
+Processing by Aeno::ShowcaseController#show as HTML
+  Parameters: {"id" => "dropdown"}
+  Rendering layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb
+  Rendering /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application (Duration: 87.2ms | GC: 15.0ms)
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/shared/_theme_editor.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb (Duration: 101.7ms | GC: 17.0ms)
+Completed 200 OK in 112ms (Views: 102.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 17.0ms)
+
+
+Started GET "/showcase/empty" for ::1 at 2025-12-19 08:37:29 +0100
+Processing by Aeno::ShowcaseController#show as HTML
+  Parameters: {"id" => "empty"}
+  Rendering layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb
+  Rendering /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application (Duration: 1.8ms | GC: 0.1ms)
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/shared/_theme_editor.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb (Duration: 17.7ms | GC: 2.3ms)
+Completed 200 OK in 26ms (Views: 18.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 2.3ms)
+
+
+Started GET "/showcase/form" for ::1 at 2025-12-19 08:37:30 +0100
+Processing by Aeno::ShowcaseController#show as HTML
+  Parameters: {"id" => "form"}
+  Rendering layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb
+  Rendering /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application (Duration: 33.6ms | GC: 4.1ms)
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/shared/_theme_editor.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb (Duration: 48.2ms | GC: 6.1ms)
+Completed 200 OK in 57ms (Views: 48.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 6.1ms)
+
+
+Started GET "/showcase/drawer" for ::1 at 2025-12-19 08:37:32 +0100
+Processing by Aeno::ShowcaseController#show as HTML
+  Parameters: {"id" => "drawer"}
+  Rendering layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb
+  Rendering /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application (Duration: 19.0ms | GC: 2.9ms)
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/shared/_theme_editor.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb (Duration: 33.6ms | GC: 5.4ms)
+Completed 200 OK in 45ms (Views: 34.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 6.7ms)
+
+
+Started GET "/showcase/drawer" for ::1 at 2025-12-19 08:37:45 +0100
+Processing by Aeno::ShowcaseController#show as HTML
+  Parameters: {"id" => "drawer"}
+  Rendering layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb
+  Rendering /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application (Duration: 28.6ms | GC: 3.0ms)
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/shared/_theme_editor.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb (Duration: 45.5ms | GC: 6.0ms)
+Completed 200 OK in 50ms (Views: 45.4ms | ActiveRecord: 0.5ms (0 queries, 0 cached) | GC: 6.1ms)
+
+
+Started GET "/showcase/drawer" for ::1 at 2025-12-19 08:38:33 +0100
+Processing by Aeno::ShowcaseController#show as HTML
+  Parameters: {"id" => "drawer"}
+  Rendering layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb
+  Rendering /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application
+  Rendering inline template
+  Rendered inline template (Duration: 22.2ms | GC: 15.3ms)
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application (Duration: 53.2ms | GC: 19.7ms)
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/shared/_theme_editor.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb (Duration: 72.5ms | GC: 24.3ms)
+Completed 200 OK in 77ms (Views: 72.4ms | ActiveRecord: 0.5ms (0 queries, 0 cached) | GC: 24.4ms)
+
+
+Started GET "/showcase/drawer" for ::1 at 2025-12-19 08:38:35 +0100
+Processing by Aeno::ShowcaseController#show as HTML
+  Parameters: {"id" => "drawer"}
+  Rendering layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb
+  Rendering /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application
+  Rendering inline template
+  Rendered inline template (Duration: 8.0ms | GC: 1.5ms)
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application (Duration: 29.9ms | GC: 4.2ms)
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/shared/_theme_editor.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb (Duration: 44.6ms | GC: 6.7ms)
+Completed 200 OK in 53ms (Views: 45.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 6.7ms)
+
+
+Started GET "/showcase/drawer" for ::1 at 2025-12-19 08:38:35 +0100
+Processing by Aeno::ShowcaseController#show as HTML
+  Parameters: {"id" => "drawer"}
+  Rendering layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb
+  Rendering /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application
+  Rendering inline template
+  Rendered inline template (Duration: 7.8ms | GC: 1.1ms)
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/showcase/show.html.erb within layouts/aeno/application (Duration: 25.2ms | GC: 3.1ms)
+  Rendered /Users/ben/Desktop/gems/aeno/app/views/aeno/shared/_theme_editor.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /Users/ben/Desktop/gems/aeno/app/views/layouts/aeno/application.html.erb (Duration: 40.1ms | GC: 5.4ms)
+Completed 200 OK in 43ms (Views: 40.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 5.4ms)
+
+

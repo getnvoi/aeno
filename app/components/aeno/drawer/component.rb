@@ -161,6 +161,34 @@ module Aeno::Drawer
           end
         end
       end
+
+      b.example(:nested, title: "Nested Drawers") do |e|
+        e.preview_template standalone: true, template: <<~ERB
+          <%= render(Aeno::Drawer::Component.new(standalone: true)) do |drawer| %>
+            <%= drawer.with_trigger do %>
+              <%= render(Aeno::Button::Component.new(variant: :default)) { "View Documents" } %>
+            <% end %>
+            <%= drawer.with_header { "Documents" } %>
+            <%= drawer.with_empty do |empty| %>
+              <%= empty.with_title { "No documents uploaded yet" } %>
+              <p class="text-sm text-gray-600 mb-4">Start by uploading your first document</p>
+              <%= render(Aeno::Drawer::Component.new(standalone: true, width: "w-1/3")) do |nested| %>
+                <%= nested.with_trigger do %>
+                  <%= render(Aeno::Button::Component.new(variant: :primary)) { "Upload Document" } %>
+                <% end %>
+                <%= nested.with_header { "Upload Document" } %>
+                <div class="p-6">
+                  <div class="border-2 border-dashed border-gray-300 rounded-lg p-12 text-center">
+                    <%= lucide_icon("upload-cloud", class: "mx-auto h-12 w-12 text-gray-400") %>
+                    <p class="mt-2 text-sm text-gray-600">Click to upload or drag and drop</p>
+                    <p class="text-xs text-gray-500">PDF, DOC, DOCX up to 10MB</p>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        ERB
+      end
     end
 
     private
