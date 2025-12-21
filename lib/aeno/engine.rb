@@ -15,6 +15,7 @@ module Aeno
     # Support both Propshaft and Sprockets
     initializer "aeno.assets" do |app|
       if app.config.respond_to?(:assets)
+        app.config.assets.paths << root.join("app/assets/stylesheets")
         app.config.assets.paths << root.join("app/javascript")
         app.config.assets.paths << root.join("app/components")
       end

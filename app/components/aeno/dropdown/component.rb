@@ -21,15 +21,15 @@ module Aeno::Dropdown
       style do
         base do
           %w[
-            block w-full text-left px-4 py-2 text-sm text-gray-700
-            hover:bg-gray-100 hover:text-gray-900
+            block w-full text-left px-list py-list text-ui text-foreground
+            hover:bg-secondary-hover
             cursor-pointer
           ]
         end
 
         variants do
           selected do
-            yes { "bg-gray-50" }
+            yes { "bg-secondary-light" }
           end
         end
       end
@@ -76,7 +76,7 @@ module Aeno::Dropdown
 
       erb_template <<~ERB
         <div class="py-1" data-aeno--dropdown-target="group">
-          <div class="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+          <div class="px-list py-list text-ui font-ui-weight text-muted-foreground uppercase tracking-wider">
             <%= label %>
           </div>
           <% items.each do |item| %>

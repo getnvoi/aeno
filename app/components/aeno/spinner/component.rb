@@ -38,12 +38,10 @@ module Aeno::Spinner
         end
 
         variant do
-          white { "before:border-white/50 before:border-t-white" }
-          default { "before:border-gray-500/50 before:border-t-gray-500" }
-          primary { "before:border-default-500/50 before:border-t-default-500" }
-          secondary { "before:border-secondary/50 before:border-t-secondary" }
-          destructive { "before:border-destructive/50 before:border-t-destructive" }
-          black { "before:border-black/50 before:border-t-black" }
+          default { "before:border-default-solid/50 before:border-t-default-solid" }
+          primary { "before:border-primary-solid/50 before:border-t-primary-solid" }
+          secondary { "before:border-secondary-solid/50 before:border-t-secondary-solid" }
+          destructive { "before:border-destructive-solid/50 before:border-t-destructive-solid" }
         end
       end
     end
@@ -63,7 +61,9 @@ module Aeno::Spinner
 
       b.example(:variants, title: "Variants") do |e|
         e.preview variant: :default
-        e.preview variant: :black
+        e.preview variant: :primary
+        e.preview variant: :secondary
+        e.preview variant: :destructive
       end
     end
 

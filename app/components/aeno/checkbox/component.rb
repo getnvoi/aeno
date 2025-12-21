@@ -16,15 +16,10 @@ module Aeno::Checkbox
     def checkbox_classes
       [
         "col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white",
-        "checked:border-indigo-600 checked:bg-indigo-600",
-        "indeterminate:border-indigo-600 indeterminate:bg-indigo-600",
-        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+        "checked:border-primary-solid checked:bg-primary-solid",
+        "indeterminate:border-primary-solid indeterminate:bg-primary-solid",
+        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-solid",
         "disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100",
-        "dark:border-white/10 dark:bg-white/5",
-        "dark:checked:border-indigo-500 dark:checked:bg-indigo-500",
-        "dark:indeterminate:border-indigo-500 dark:indeterminate:bg-indigo-500",
-        "dark:focus-visible:outline-indigo-500",
-        "dark:disabled:border-white/5 dark:disabled:bg-white/10 dark:disabled:checked:bg-white/10",
         "forced-colors:appearance-auto",
         css
       ].compact.join(" ")

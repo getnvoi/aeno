@@ -8,9 +8,9 @@ module Aeno::Sidebar
     style do
       base do
         %w[
-          flex w-full items-center gap-2 rounded-md p-2 text-left text-sm
-          text-zinc-700
-          hover:bg-zinc-100 hover:text-zinc-900
+          flex w-full items-center gap-2 rounded-button px-list py-list text-left text-ui
+          text-foreground
+          hover:bg-secondary-hover
           transition-colors
           [&>svg]:w-4 [&>svg]:h-4 [&>svg]:flex-shrink-0
         ]
@@ -18,7 +18,7 @@ module Aeno::Sidebar
 
       variants do
         active do
-          yes { "bg-zinc-100 font-medium text-zinc-900" }
+          yes { "bg-primary-light font-ui-weight text-primary-solid" }
         end
       end
     end

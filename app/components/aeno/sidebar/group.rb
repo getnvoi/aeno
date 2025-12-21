@@ -9,7 +9,7 @@ module Aeno::Sidebar
     end
 
     style :label do
-      base { "text-zinc-500 h-8 flex items-center px-2 text-xs font-medium uppercase tracking-wide" }
+      base { "text-muted-foreground h-8 flex items-center px-list text-ui font-ui-weight uppercase tracking-wide" }
     end
 
     style :menu do

@@ -8,15 +8,14 @@ module Aeno
       option :size, default: -> { :md }
       option :status, optional: true
       option :status_position, default: -> { :top_right }
+      option :initials, optional: true  # Explicit initials override
 
       style do
         base do
           %w[
             rounded-full
-            outline
-            -outline-offset-1
-            outline-black/5
-            dark:outline-white/10
+            border
+            border-border
           ]
         end
 
@@ -45,9 +44,27 @@ module Aeno
 
       # Extract initials from alt text (max 3 letters)
       def initials
+        # Use explicit initials if provided
+        if @initials.is_a?(String) && @initials.present?
+          return @initials.upcase
+        end
+
         return "?" unless alt.present?
 
-        words = alt.strip.split(/\s+/)
+        text = alt.strip
+
+        # Handle email addresses (e.g., "john.doe@example.com" -> "JD")
+        if text.include?("@")
+          local_part = text.split("@").first
+          # Split by dots, underscores, hyphens
+          parts = local_part.split(/[._-]/)
+          return parts.first(3).map { |p| p[0].upcase }.join if parts.size > 1
+          # Single word email: take first 2 chars
+          return text[0..1].upcase
+        end
+
+        # Handle regular names with spaces
+        words = text.split(/\s+/)
         words.first(3).map { |word| word[0].upcase }.join
       end
 
@@ -84,17 +101,17 @@ module Aeno
       def status_dot_color_classes
         case status&.to_sym
         when :gray
-          "bg-gray-300 dark:bg-gray-500"
+          "bg-default-solid"
         when :red
-          "bg-red-400 dark:bg-red-500"
+          "bg-destructive-solid"
         when :green
-          "bg-green-400 dark:bg-green-500"
+          "bg-success-solid"
         when :yellow
-          "bg-yellow-400 dark:bg-yellow-500"
+          "bg-warning-solid"
         when :blue
-          "bg-blue-400 dark:bg-blue-500"
+          "bg-info-solid"
         else
-          "bg-gray-300 dark:bg-gray-500"
+          "bg-default-solid"
         end
       end
 
@@ -116,7 +133,7 @@ module Aeno
 
       def status_dot_classes
         [
-          "absolute block rounded-full ring-2 ring-white dark:ring-gray-900",
+          "absolute block rounded-full ring-2 ring-background-elevated",
           status_dot_size,
           status_dot_color_classes,
           status_dot_position_classes
@@ -185,6 +202,20 @@ module Aeno
           e.preview size: :lg, alt: "Diana Davis"
           e.preview size: :lg, alt: "Edward Ellis"
           e.preview size: :lg, alt: "Fiona Foster"
+        end
+
+        b.example(:emails, title: "From Email Addresses") do |e|
+          e.preview size: :md, alt: "john.doe@example.com"
+          e.preview size: :md, alt: "mary_jane@example.com"
+          e.preview size: :md, alt: "bob-smith@example.com"
+          e.preview size: :md, alt: "admin.user@test.com"
+          e.preview size: :md, alt: "alice@example.com"
+        end
+
+        b.example(:explicit_initials, title: "Explicit Initials") do |e|
+          e.preview size: :md, initials: "JD", alt: "John Doe"
+          e.preview size: :md, initials: "AB", alt: "Alice Bob"
+          e.preview size: :md, initials: "XYZ", alt: "Some Name"
         end
       end
 

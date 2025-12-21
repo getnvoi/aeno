@@ -1,235 +1,155 @@
 @import "tailwindcss";
 
-@source "../../../components/**/*.{rb,erb}";
+@source "../../../components/**/*.{rb,erb,html}";
 @source "../../../views/**/*.{erb,html}";
-@source "../../../../test/dummy/app/views/**/*.{erb,html}";
 
 /* =============================================================================
-   Aeros Theme - Cornerstone-Based Token System
+   Aeno Theme System - Flat Semantic Tokens
 
-   Each cornerstone (button, input, card, etc.) has its own set of CSS variables.
-   Override any --ui-* variable to customize.
+   Base color palette (solid/light/dark variants) defines the app's look & feel.
+   All other tokens derive from these base colors.
    ============================================================================= */
 
 @theme {
-  /* ═══════════════════════════════════════════════════════════════════════════
-     CORNERSTONE: BUTTON
-     ═══════════════════════════════════════════════════════════════════════════ */
-  --ui-button-bg: #475569;
-  --ui-button-bg-hover: #334155;
-  --ui-button-fg: #ffffff;
-  --ui-button-border: #475569;
-  --ui-button-radius: 0.375rem;
-  --ui-button-px: 0.75rem;
-  --ui-button-py: 0.5rem;
-  --ui-button-weight: 600;
+  /* ==========================================================================
+     BASE COLOR PALETTE - Top-level colors that define the app's look & feel
+     ========================================================================== */
 
-  /* Button variants */
-  --ui-button-secondary-bg: #f5f5f5;
-  --ui-button-secondary-bg-hover: #e5e5e5;
-  --ui-button-secondary-fg: #1a1a1a;
-  --ui-button-destructive-bg: #dc2626;
-  --ui-button-destructive-bg-hover: #b91c1c;
-  --ui-button-destructive-fg: #ffffff;
-  --ui-button-ghost-bg-hover: #f5f5f5;
-  --ui-button-ghost-fg: #1a1a1a;
-  --ui-button-outline-bg-hover: #f5f5f5;
-  --ui-button-outline-fg: #1a1a1a;
+  /* PRIMARY (Blue) - Main actions, links, focus states */
+  --color-primary-solid: #2563eb; /* blue-600 - buttons, emphasis */
+  --color-primary-light: #eff6ff; /* blue-50 - alert/badge bg */
+  --color-primary-dark: #1e3a8a; /* blue-900 - text on light bg */
 
-  /* Tailwind mappings */
-  --color-button: var(--ui-button-bg);
-  --color-button-hover: var(--ui-button-bg-hover);
-  --color-button-foreground: var(--ui-button-fg);
-  --color-button-border: var(--ui-button-border);
-  --radius-button: var(--ui-button-radius);
-  --radius-button-sm: calc(var(--ui-button-radius) * 0.85);
-  --radius-button-lg: calc(var(--ui-button-radius) * 1.15);
-  --spacing-button-x: var(--ui-button-px);
-  --spacing-button-y: var(--ui-button-py);
-  --color-button-secondary: var(--ui-button-secondary-bg);
-  --color-button-secondary-hover: var(--ui-button-secondary-bg-hover);
-  --color-button-secondary-foreground: var(--ui-button-secondary-fg);
-  --color-button-destructive: var(--ui-button-destructive-bg);
-  --color-button-destructive-hover: var(--ui-button-destructive-bg-hover);
-  --color-button-destructive-foreground: var(--ui-button-destructive-fg);
-  --color-button-ghost-hover: var(--ui-button-ghost-bg-hover);
-  --color-button-ghost-foreground: var(--ui-button-ghost-fg);
-  --color-button-outline-hover: var(--ui-button-outline-bg-hover);
-  --color-button-outline-foreground: var(--ui-button-outline-fg);
+  /* SECONDARY (Slate) - Neutral actions, default text */
+  --color-secondary-solid: #475569; /* slate-600 - muted emphasis */
+  --color-secondary-light: #f8fafc; /* slate-50 - page background */
+  --color-secondary-dark: #0f172a; /* slate-900 - body text */
 
-  /* ═══════════════════════════════════════════════════════════════════════════
-     CORNERSTONE: INPUT
-     ═══════════════════════════════════════════════════════════════════════════ */
-  --ui-input-bg: #ffffff;
-  --ui-input-fg: #1a1a1a;
-  --ui-input-border: #e5e5e5;
-  --ui-input-border-focus: #475569;
-  --ui-input-ring: #475569;
-  --ui-input-placeholder: #737373;
-  --ui-input-radius: 0.375rem;
-  --ui-input-px: 0.75rem;
-  --ui-input-py: 0.5rem;
+  /* DESTRUCTIVE (Red) - Dangerous actions, errors */
+  --color-destructive-solid: #dc2626; /* red-600 - delete buttons */
+  --color-destructive-light: #fef2f2; /* red-50 - error alert bg */
+  --color-destructive-dark: #7f1d1d; /* red-900 - error text */
 
-  /* Tailwind mappings */
-  --color-input-bg: var(--ui-input-bg);
-  --color-input-border: var(--ui-input-border);
-  --color-input-border-focus: var(--ui-input-border-focus);
-  --color-input-text: var(--ui-input-fg);
-  --color-input-placeholder: var(--ui-input-placeholder);
-  --color-input-ring: var(--ui-input-ring);
-  --radius-input: var(--ui-input-radius);
-  --spacing-input-x: var(--ui-input-px);
-  --spacing-input-y: var(--ui-input-py);
-  --color-input-error: #dc2626;
-  --color-input-error-border: #dc2626;
-  --color-input-success: #16a34a;
-  --color-input-success-border: #16a34a;
+  /* SUCCESS (Green) - Success states, confirmations */
+  --color-success-solid: #16a34a; /* green-600 - success buttons */
+  --color-success-light: #f0fdf4; /* green-50 - success alert bg */
+  --color-success-dark: #14532d; /* green-900 - success text */
 
-  /* ═══════════════════════════════════════════════════════════════════════════
-     CORNERSTONE: CARD
-     ═══════════════════════════════════════════════════════════════════════════ */
-  --ui-card-bg: #ffffff;
-  --ui-card-fg: #1a1a1a;
-  --ui-card-border: #e5e5e5;
-  --ui-card-radius: 0.5rem;
-  --ui-card-padding: 1.5rem;
-  --ui-card-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  /* WARNING (Amber) - Warning states, cautions */
+  --color-warning-solid: #d97706; /* amber-600 - warning emphasis */
+  --color-warning-light: #fffbeb; /* amber-50 - warning alert bg */
+  --color-warning-dark: #78350f; /* amber-900 - warning text */
 
-  /* Tailwind mappings */
-  --color-card-bg: var(--ui-card-bg);
-  --color-card-border: var(--ui-card-border);
-  --color-card-text: var(--ui-card-fg);
-  --radius-card: var(--ui-card-radius);
-  --spacing-card: var(--ui-card-padding);
-  --shadow-card: var(--ui-card-shadow);
+  /* INFO (Sky) - Informational states */
+  --color-info-solid: #0284c7; /* sky-600 - info emphasis */
+  --color-info-light: #f0f9ff; /* sky-50 - info alert bg */
+  --color-info-dark: #0c4a6e; /* sky-900 - info text */
 
-  /* ═══════════════════════════════════════════════════════════════════════════
-     CORNERSTONE: SHEET
-     ═══════════════════════════════════════════════════════════════════════════ */
-  --ui-sheet-bg: #ffffff;
-  --ui-sheet-fg: #1a1a1a;
-  --ui-sheet-border: #e5e5e5;
-  --ui-sheet-overlay: #00000080;
-  --ui-sheet-radius: 0.75rem;
-  --ui-sheet-padding: 1.5rem;
-  --ui-sheet-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  /* DEFAULT (Slate) - Neutral/default states */
+  --color-default-solid: #64748b; /* slate-500 - default emphasis */
+  --color-default-light: #f8fafc; /* slate-50 - default alert bg */
+  --color-default-dark: #475569; /* slate-600 - default text */
 
-  /* Tailwind mappings */
-  --color-sheet-bg: var(--ui-sheet-bg);
-  --color-sheet-border: var(--ui-sheet-border);
-  --color-sheet-overlay: var(--ui-sheet-overlay);
-  --radius-sheet: var(--ui-sheet-radius);
-  --spacing-sheet: var(--ui-sheet-padding);
-  --shadow-sheet: var(--ui-sheet-shadow);
+  /* ==========================================================================
+     SEMANTIC TOKENS - Derive from base palette
+     ========================================================================== */
 
-  /* ═══════════════════════════════════════════════════════════════════════════
-     CORNERSTONE: AREA
-     ═══════════════════════════════════════════════════════════════════════════ */
-  --ui-area-bg: #f5f5f5;
-  --ui-area-fg: #1a1a1a;
-  --ui-area-border: #e5e5e5;
-  --ui-area-radius: 0.75rem;
-  --ui-area-padding: 2rem;
+  /* Global application colors */
+  --color-background: var(--color-secondary-light); /* slate-50 */
+  --color-background-elevated: #ffffff; /* white for cards/drawers */
+  --color-foreground: var(--color-secondary-dark); /* slate-900 */
+  --color-border: #e2e8f0; /* slate-200 */
+  --color-muted-foreground: #64748b; /* slate-500 */
 
-  /* Tailwind mappings */
-  --color-area-bg: var(--ui-area-bg);
-  --color-area-border: var(--ui-area-border);
-  --radius-area: var(--ui-area-radius);
-  --spacing-area: var(--ui-area-padding);
+  /* Opacities */
+  --opacity-muted: 0.6;
+  --opacity-disabled: 0.5;
 
-  /* ═══════════════════════════════════════════════════════════════════════════
-     CORNERSTONE: TABLE
-     ═══════════════════════════════════════════════════════════════════════════ */
-  --ui-table-bg: #ffffff;
-  --ui-table-fg: #1a1a1a;
-  --ui-table-border: #e5e5e5;
-  --ui-table-header-bg: #f5f5f5;
-  --ui-table-header-fg: #737373;
-  --ui-table-row-hover: #f5f5f5;
-  --ui-table-row-stripe: #f5f5f5;
-  --ui-table-radius: 0.5rem;
-  --ui-table-cell-padding: 0.75rem;
+  /* Button hover states */
+  --color-primary-hover: #1d4ed8; /* blue-700 */
+  --color-secondary-hover: #f1f5f9; /* slate-100 */
+  --color-destructive-hover: #b91c1c; /* red-700 */
+  --color-success-hover: #15803d; /* green-700 */
+  --color-warning-hover: #b45309; /* amber-700 */
+  --color-info-hover: #0369a1; /* sky-700 */
 
-  /* Tailwind mappings */
-  --color-table-bg: var(--ui-table-bg);
-  --color-table-border: var(--ui-table-border);
-  --color-table-header-bg: var(--ui-table-header-bg);
-  --color-table-header-fg: var(--ui-table-header-fg);
-  --color-table-row-hover: var(--ui-table-row-hover);
-  --color-table-row-stripe: var(--ui-table-row-stripe);
-  --radius-table: var(--ui-table-radius);
-  --spacing-table-cell: var(--ui-table-cell-padding);
+  /* ==========================================================================
+     SPACING SYSTEM
+     ========================================================================== */
 
-  /* ═══════════════════════════════════════════════════════════════════════════
-     CORNERSTONE: TYPOGRAPHY
-     ═══════════════════════════════════════════════════════════════════════════ */
-  --ui-heading-color: #1a1a1a;
-  --ui-body-color: #1a1a1a;
-  --ui-muted-color: #737373;
-  --ui-link-color: #475569;
-  --ui-link-hover: #334155;
-  --ui-code-bg: #f5f5f5;
-  --ui-code-fg: #1a1a1a;
-  --ui-font-sans: ui-sans-serif, system-ui, sans-serif;
-  --ui-font-mono: ui-monospace, monospace;
-  --ui-heading-weight: 600;
+  /* List spacing - Compact vertical lists (sidebar, dropdown, table) */
+  --spacing-list-x: 1rem; /* 16px */
+  --spacing-list-y: 0.5rem; /* 8px */
 
-  /* Tailwind mappings */
-  --color-heading: var(--ui-heading-color);
-  --color-body: var(--ui-body-color);
-  --color-link: var(--ui-link-color);
-  --color-link-hover: var(--ui-link-hover);
-  --color-code: var(--ui-code-fg);
-  --color-code-bg: var(--ui-code-bg);
-  --font-sans: var(--ui-font-sans);
-  --font-mono: var(--ui-font-mono);
+  /* Layout spacing - Page containers, sections */
+  --spacing-layout-x: 2rem; /* 32px */
+  --spacing-layout-y: 1.5rem; /* 24px */
 
-  /* ═══════════════════════════════════════════════════════════════════════════
-     SEMANTIC TOKENS (derived from cornerstones)
-     ═══════════════════════════════════════════════════════════════════════════ */
-  --color-primary: var(--ui-button-bg);
-  --color-primary-hover: var(--ui-button-bg-hover);
-  --color-primary-foreground: var(--ui-button-fg);
-  --color-secondary: var(--ui-button-secondary-bg);
-  --color-secondary-hover: var(--ui-button-secondary-bg-hover);
-  --color-secondary-foreground: var(--ui-button-secondary-fg);
-  --color-destructive: var(--ui-button-destructive-bg);
-  --color-destructive-hover: var(--ui-button-destructive-bg-hover);
-  --color-destructive-foreground: var(--ui-button-destructive-fg);
-  --color-muted: var(--ui-area-bg);
-  --color-muted-foreground: var(--ui-muted-color);
-  --color-accent: var(--ui-button-ghost-bg-hover);
-  --color-accent-foreground: var(--ui-button-ghost-fg);
-  --color-background: var(--ui-card-bg);
-  --color-foreground: var(--ui-body-color);
-  --color-card: var(--ui-card-bg);
-  --color-card-foreground: var(--ui-card-fg);
-  --color-border: var(--ui-card-border);
-  --color-input: var(--ui-input-border);
-  --color-ring: var(--ui-input-ring);
+  /* Wrapped spacing - Cards, drawers, modals */
+  --spacing-wrapped-x: 1.5rem; /* 24px */
+  --spacing-wrapped-y: 1.5rem; /* 24px */
+  --spacing-wrapped-title-y: 0.75rem; /* 12px - HALF of wrapped-x */
 
-  /* Radius scale */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-  --radius-full: 9999px;
+  /* ==========================================================================
+     TYPOGRAPHY SYSTEM
+     ========================================================================== */
 
-  /* Sidebar (derives from card/area) */
-  --color-sidebar: var(--ui-card-bg);
-  --color-sidebar-foreground: var(--ui-card-fg);
-  --color-sidebar-border: var(--ui-card-border);
-  --color-sidebar-accent: var(--ui-button-ghost-bg-hover);
-  --color-sidebar-accent-foreground: var(--ui-button-ghost-fg);
+  /* UI text - Buttons, labels, table cells, form fields */
+  --text-ui: 0.875rem; /* 14px */
+  --text-ui-line-height: 1.25rem; /* 20px */
+  --font-ui-weight: 500;
 
-  /* Text sizes */
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 1.875rem;
+  /* Page typography - Main content headings */
+  --text-page-title: 1.875rem; /* 30px */
+  --text-page-title-line-height: 2.25rem;
+  --font-page-title-weight: 700;
+  --text-page-description: 1rem; /* 16px */
+  --text-page-description-line-height: 1.5rem;
+
+  /* Drawer typography - Modal/drawer headings */
+  --text-drawer-title: 1.125rem; /* 18px */
+  --text-drawer-title-line-height: 1.75rem;
+  --font-drawer-title-weight: 600;
+  --text-drawer-description: 0.875rem; /* 14px */
+  --text-drawer-description-line-height: 1.25rem;
+
+  /* ==========================================================================
+     CONTROL SIZING - Buttons, Inputs, Selects
+     ========================================================================== */
+
+  /* Control heights */
+  --height-control: 2.5rem; /* 40px - default */
+  --height-control-sm: 2rem; /* 32px */
+  --height-control-lg: 3rem; /* 48px */
+
+  /* Button padding */
+  --spacing-button-x: 1rem; /* 16px */
+  --spacing-button-x-sm: 0.75rem; /* 12px */
+  --spacing-button-x-lg: 1.5rem; /* 24px */
+
+  /* Input padding */
+  --spacing-input-x: 0.75rem; /* 12px */
+  --spacing-input-x-sm: 0.625rem; /* 10px */
+  --spacing-input-x-lg: 1rem; /* 16px */
+
+  /* ==========================================================================
+     BORDER RADIUS
+     ========================================================================== */
+
+  /* Buttons */
+  --radius-button: 0.375rem; /* 6px */
+  --radius-button-sm: 0.25rem; /* 4px */
+  --radius-button-lg: 0.5rem; /* 8px */
+
+  /* Inputs */
+  --radius-input: 0.375rem; /* 6px */
+  --radius-input-sm: 0.25rem; /* 4px */
+  --radius-input-lg: 0.5rem; /* 8px */
+
+  /* Cards */
+  --radius-card: 0.5rem; /* 8px */
+  --radius-card-sm: 0.375rem; /* 6px */
+  --radius-card-lg: 0.75rem; /* 12px */
 }
 
 @layer base {
@@ -291,4 +211,156 @@ button {
 
 .animate-toast-exit {
   animation: toast-exit 0.2s ease-in forwards;
+}
+
+/* =============================================================================
+   Custom Utilities
+   ============================================================================= */
+@layer utilities {
+  /* Spacing utilities */
+  .px-list {
+    padding-inline: var(--spacing-list-x);
+  }
+  .py-list {
+    padding-block: var(--spacing-list-y);
+  }
+
+  .px-layout {
+    padding-inline: var(--spacing-layout-x);
+  }
+  .py-layout {
+    padding-block: var(--spacing-layout-y);
+  }
+
+  .px-wrapped {
+    padding-inline: var(--spacing-wrapped-x);
+  }
+  .py-wrapped {
+    padding-block: var(--spacing-wrapped-y);
+  }
+  .py-wrapped-title {
+    padding-block: var(--spacing-wrapped-title-y);
+  }
+
+  /* Typography utilities */
+  .text-ui {
+    font-size: var(--text-ui);
+    line-height: var(--text-ui-line-height);
+  }
+  .font-ui-weight {
+    font-weight: var(--font-ui-weight);
+  }
+
+  .text-page-title {
+    font-size: var(--text-page-title);
+    line-height: var(--text-page-title-line-height);
+  }
+  .font-page-title-weight {
+    font-weight: var(--font-page-title-weight);
+  }
+
+  .text-page-description {
+    font-size: var(--text-page-description);
+    line-height: var(--text-page-description-line-height);
+  }
+
+  .text-drawer-title {
+    font-size: var(--text-drawer-title);
+    line-height: var(--text-drawer-title-line-height);
+  }
+  .font-drawer-title-weight {
+    font-weight: var(--font-drawer-title-weight);
+  }
+
+  .text-drawer-description {
+    font-size: var(--text-drawer-description);
+    line-height: var(--text-drawer-description-line-height);
+  }
+
+  /* Control sizing utilities */
+  .h-control {
+    height: var(--height-control);
+  }
+  .h-control-sm {
+    height: var(--height-control-sm);
+  }
+  .h-control-lg {
+    height: var(--height-control-lg);
+  }
+
+  .px-button-x {
+    padding-inline: var(--spacing-button-x);
+  }
+  .px-button-x-sm {
+    padding-inline: var(--spacing-button-x-sm);
+  }
+  .px-button-x-lg {
+    padding-inline: var(--spacing-button-x-lg);
+  }
+
+  .px-input-x {
+    padding-inline: var(--spacing-input-x);
+  }
+  .px-input-x-sm {
+    padding-inline: var(--spacing-input-x-sm);
+  }
+  .px-input-x-lg {
+    padding-inline: var(--spacing-input-x-lg);
+  }
+
+  /* Border radius utilities */
+  .rounded-button {
+    border-radius: var(--radius-button);
+  }
+  .rounded-button-sm {
+    border-radius: var(--radius-button-sm);
+  }
+  .rounded-button-lg {
+    border-radius: var(--radius-button-lg);
+  }
+
+  .rounded-input {
+    border-radius: var(--radius-input);
+  }
+  .rounded-input-sm {
+    border-radius: var(--radius-input-sm);
+  }
+  .rounded-input-lg {
+    border-radius: var(--radius-input-lg);
+  }
+
+  .rounded-card {
+    border-radius: var(--radius-card);
+  }
+  .rounded-card-sm {
+    border-radius: var(--radius-card-sm);
+  }
+  .rounded-card-lg {
+    border-radius: var(--radius-card-lg);
+  }
+
+  /* Opacity utilities */
+  .opacity-muted {
+    opacity: var(--opacity-muted);
+  }
+  .opacity-disabled {
+    opacity: var(--opacity-disabled);
+  }
+
+  /* Checkbox/Radio checked state utilities */
+  .checked\:bg-primary-solid:checked {
+    background-color: var(--color-primary-solid);
+  }
+  .checked\:border-primary-solid:checked {
+    border-color: var(--color-primary-solid);
+  }
+  .indeterminate\:bg-primary-solid:indeterminate {
+    background-color: var(--color-primary-solid);
+  }
+  .indeterminate\:border-primary-solid:indeterminate {
+    border-color: var(--color-primary-solid);
+  }
+  .focus-visible\:outline-primary-solid:focus-visible {
+    outline-color: var(--color-primary-solid);
+  }
 }

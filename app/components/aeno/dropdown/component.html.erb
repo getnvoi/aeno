@@ -8,15 +8,15 @@
            data: { action: "click->aeno--dropdown#toggle" }) %>
   </div>
 
-  <div class="hidden origin-top-right fixed mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+  <div class="hidden origin-top-right fixed mt-2 w-56 rounded-card shadow-lg bg-background-elevated border border-border focus:outline-none z-50"
        role="menu"
        aria-orientation="vertical"
        data-aeno--dropdown-target="menu">
 
     <% if searchable %>
-      <div class="p-2 border-b border-gray-100">
+      <div class="p-2 border-b border-border">
         <input type="text"
-               class="w-full px-3 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-200 focus:border-transparent"
+               class="w-full px-input-x h-control text-ui border border-border rounded-input focus:outline-none focus:ring-2 focus:ring-primary-solid focus:border-primary-solid bg-background-elevated"
                placeholder="<%= placeholder %>"
                data-aeno--dropdown-target="search"
                data-action="input->aeno--dropdown#filter" />
@@ -35,7 +35,7 @@
       <% end %>
 
       <% if searchable %>
-        <div class="hidden px-4 py-2 text-sm text-gray-500" data-aeno--dropdown-target="empty">
+        <div class="hidden px-list py-list text-ui text-muted-foreground" data-aeno--dropdown-target="empty">
           <%= empty_message %>
         </div>
       <% end %>

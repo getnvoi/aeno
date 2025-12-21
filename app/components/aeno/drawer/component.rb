@@ -13,7 +13,7 @@ module Aeno::Drawer
     end
 
     style(:wrapper) do
-      base { "fixed top-0 right-0 bottom-0 h-full transition-transform duration-300 translate-x-full bg-white shadow-xl" }
+      base { "fixed top-0 right-0 bottom-0 h-full transition-transform duration-300 translate-x-full bg-background-elevated border-l border-border shadow-xl" }
     end
 
     erb_template <<~ERB

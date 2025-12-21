@@ -32,7 +32,7 @@ module Aeno::Input
 
       nested = input_component.new(name:, id:, disabled:, required:, data:, **extra_options)
 
-      content_tag(:div, class: ["w-full", (disabled ? "opacity-50 pointer-events-none" : nil)].compact.join(" "), data: merged_data) do
+      content_tag(:div, class: ["w-full", (disabled ? "opacity-disabled pointer-events-none" : nil)].compact.join(" "), data: merged_data) do
         safe_join([
           (label_html if label),
           content_tag(:div, class: "relative") do
@@ -47,20 +47,20 @@ module Aeno::Input
     private
 
       def label_html
-        content_tag(:label, for: id || name, class: "block text-sm font-medium text-gray-700 mb-1") do
+        content_tag(:label, for: id || name, class: "block text-ui font-ui-weight text-foreground mb-1") do
           safe_join([
             label,
-            (content_tag(:span, "*", class: "text-red-500") if required)
+            (content_tag(:span, "*", class: "text-destructive-solid") if required)
           ].compact)
         end
       end
 
       def error_html
-        content_tag(:p, error_text, class: "mt-1 text-sm text-red-600")
+        content_tag(:p, error_text, class: "mt-1 text-drawer-description text-destructive-dark")
       end
 
       def helper_html
-        content_tag(:p, helper_text, class: "mt-1 text-sm text-gray-500")
+        content_tag(:p, helper_text, class: "mt-1 text-drawer-description text-muted-foreground")
       end
 
       examples("Input", description: "Form input components") do |b|

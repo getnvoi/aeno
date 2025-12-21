@@ -17,119 +17,70 @@ module Aeno::Button
     style do
       base do
         %w[
-          rounded-md
-          px-3.5
-          py-2.5
-          font-semibold
           inline-flex
           items-center
-          space-x-1
-          hover:bg-stone-500
-          focus-visible:outline
-          focus-visible:outline-2
-          focus-visible:outline-offset-2
-          focus-visible:outline-stone-600
+          justify-center
+          gap-2
+          text-ui
+          font-ui-weight
           cursor-pointer
-          [&>span]:truncate
-          [&>span]:flex-shrink
           [&>svg]:flex-shrink-0
           [&>svg]:w-4
           [&>svg]:h-4
-          [&.loading]:opacity-50
-          [&.loading]:pointer-events-none
-          [&.loading_.icon]:hidden
-          [&.loading_.spinner]:flex
         ]
       end
 
       variants do
         variant do
-          white { "text-stone-600 bg-white hover:bg-stone-50 text-stone-800 border border-gray-200 shadow-sm !text-gray-500" }
-          default { "bg-slate-600 text-white" }
-          light { "bg-stone-50 text-stone-600 hover:bg-stone-100" }
-          outline { "bg-stone-50 text-stone-600 ring ring-1 ring-stone-400 rounded-full px-6 hover:bg-stone-100" }
+          primary { "bg-primary-solid hover:bg-primary-hover text-white" }
+          outline { "bg-white hover:bg-secondary-hover text-foreground border border-border" }
+          destructive { "bg-destructive-solid hover:bg-destructive-hover text-white" }
         end
 
         disabled do
-          yes { "pointer-events-none opacity-50" }
+          yes { "opacity-disabled pointer-events-none" }
         end
 
         full do
-          yes { "w-full justify-center" }
+          yes { "w-full" }
         end
 
         size do
-          xsmall do
-            %w[
-              px-2.5
-              py-1
-              [&>span]:text-xs
-              [&>svg]:pl-[-10px]
-              [&>svg]:flex-shrink-0
-              [&>svg]:w-3
-              [&>svg]:h-3
-              space-x-1
-            ]
-          end
-
-          small do
-            %w[
-              text-lg
-              px-2.5
-              py-1.5
-              space-x-1
-              text-sm
-              [&>svg]:pl-[-10px]
-              [&>svg]:flex-shrink-0
-              [&>svg]:w-4
-              [&>svg]:h-4
-            ]
-          end
-
-          large do
-            %w[
-              text-lg
-              px-4
-              py-3
-              space-x-2
-              [&>svg]:pl-[-10px]
-              [&>svg]:flex-shrink-0
-              [&>svg]:w-6
-              [&>svg]:h-6
-            ]
-          end
+          xs { "h-control-sm px-button-x-sm rounded-button-sm" }
+          xl { "h-control-lg px-button-x-lg rounded-button-lg [&>svg]:w-6 [&>svg]:h-6" }
         end
+      end
+
+      defaults do
+        { variant: :primary, size: nil }
       end
     end
 
     def classes
+      size_classes = size ? nil : "h-control px-button-x rounded-button"
       [
         css,
+        size_classes,
         style(variant:, disabled:, full:, size:)
-      ].join(" ")
+      ].compact.join(" ")
     end
 
     examples("Button", description: "Clickable actions and navigation links") do |b|
-      b.example(:default, title: "Default") do |e|
-        e.preview label: "Click me"
-      end
-
       b.example(:variants, title: "Variants") do |e|
-        e.preview variant: :default, label: "Default"
-        e.preview variant: :white, label: "White"
-        e.preview variant: :light, label: "Light"
+        e.preview variant: :primary, label: "Primary"
         e.preview variant: :outline, label: "Outline"
+        e.preview variant: :destructive, label: "Destructive"
       end
 
       b.example(:sizes, title: "Sizes") do |e|
-        e.preview size: :xsmall, label: "Extra Small"
-        e.preview size: :small, label: "Small"
+        e.preview size: :xs, label: "Extra Small"
         e.preview label: "Default"
-        e.preview size: :large, label: "Large"
+        e.preview size: :xl, label: "Extra Large"
       end
 
       b.example(:icons, title: "With Icons") do |e|
-        e.preview icon: "settings", label: "Settings"
+        e.preview icon: "settings", label: "Settings", variant: :primary
+        e.preview icon: "trash", label: "Delete", variant: :destructive
       end
 
       b.example(:states, title: "States") do |e|

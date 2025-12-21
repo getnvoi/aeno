@@ -1,24 +1,24 @@
-<div class="p-6" data-controller="<%= controller_name %>">
-  <div class="flex items-center justify-center flex-col border border-dashed border-stone-300 rounded-lg p-6 min-h-[300px]">
+<div class="px-wrapped py-wrapped" data-controller="<%= controller_name %>">
+  <div class="flex items-center justify-center flex-col border border-dashed border-border rounded-card px-wrapped py-wrapped min-h-[300px]">
     <div class="flex items-center justify-center flex-col space-y-4">
       <% if icon %>
-        <div class="text-gray-400">
+        <div class="text-muted-foreground">
           <%= lucide_icon(icon, class: "w-12 h-12") %>
         </div>
       <% end %>
 
       <% if title %>
-        <div class="font-bold text-xl text-gray-900"><%= title %></div>
+        <div class="font-drawer-title-weight text-drawer-title leading-drawer-title text-foreground"><%= title %></div>
       <% end %>
 
       <% if description %>
-        <div class="text-sm text-gray-500 text-center max-w-sm">
+        <div class="text-ui text-muted-foreground text-center max-w-sm">
           <%= description %>
         </div>
       <% end %>
 
       <% if content.present? %>
-        <div class="text-sm text-gray-500 text-center max-w-sm">
+        <div class="text-ui text-muted-foreground text-center max-w-sm">
           <%= content %>
         </div>
       <% end %>

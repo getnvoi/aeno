@@ -5,20 +5,19 @@ class Aeno::FormBuilder < ActionView::Helpers::FormBuilder
     INPUT_BASE_CLASSES = %w[
       block
       w-full
-      rounded-md
-      bg-white
-      px-3
-      py-2
-      text-sm
-      text-gray-900
-      placeholder:text-gray-400
+      h-control
+      px-input-x
+      rounded-input
+      bg-background-elevated
+      text-ui
+      text-foreground
+      placeholder:text-muted-foreground
       outline-none
       border
-      border-gray-300
-      focus:border-indigo-500
-      focus:ring-1
-      focus:ring-indigo-500
-      shadow-sm
+      border-border
+      focus:ring-2
+      focus:ring-primary-solid
+      focus:border-primary-solid
     ].freeze
 
     option(:id, optional: true)

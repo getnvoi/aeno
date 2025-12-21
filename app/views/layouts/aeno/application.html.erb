@@ -14,7 +14,7 @@
     <%= yield :head %>
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
-    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "aeno/tailwind", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags "aeno/application", importmap: Aeno.importmap %>
   </head>
   <body class="<%= fixed_classes %>">

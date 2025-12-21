@@ -80,18 +80,18 @@ module Aeno::Table
 
           sticky_classes = []
           if sticky == :first && is_first
-            sticky_classes << "sticky left-0 z-20 bg-white relative after:absolute after:right-0 after:top-0 after:bottom-0 after:w-px after:bg-gray-200"
+            sticky_classes << "sticky left-0 z-20 bg-background-elevated relative after:absolute after:right-0 after:top-0 after:bottom-0 after:w-px after:bg-border"
           elsif sticky == :last && is_last
-            sticky_classes << "sticky right-0 z-20 bg-white relative before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px before:bg-gray-200"
+            sticky_classes << "sticky right-0 z-20 bg-background-elevated relative before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px before:bg-border"
           elsif sticky == :both
             if is_first
-              sticky_classes << "sticky left-0 z-20 bg-white relative after:absolute after:right-0 after:top-0 after:bottom-0 after:w-px after:bg-gray-200"
+              sticky_classes << "sticky left-0 z-20 bg-background-elevated relative after:absolute after:right-0 after:top-0 after:bottom-0 after:w-px after:bg-border"
             elsif is_last
-              sticky_classes << "sticky right-0 z-20 bg-white relative before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px before:bg-gray-200"
+              sticky_classes << "sticky right-0 z-20 bg-background-elevated relative before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px after:bg-border"
             end
           end
 
-          classes = ["px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider", sticky_classes, css].flatten.compact.join(" ")
+          classes = ["px-wrapped py-list text-left text-ui font-ui-weight text-muted-foreground uppercase tracking-wider", sticky_classes, css].flatten.compact.join(" ")
 
           content_tag(:th, scope: "col", class: classes) do
             if selectable && is_first
@@ -120,7 +120,7 @@ module Aeno::Table
       def call
         total = columns.length
 
-        content_tag(:thead, class: "bg-gray-50") do
+        content_tag(:thead, class: "bg-secondary-light") do
           content_tag(:tr) do
             columns.each_with_index.map do |column, idx|
               column.is_first = (idx == 0)
@@ -169,22 +169,22 @@ module Aeno::Table
 
           sticky_classes = []
           if sticky == :first && is_first
-            sticky_classes << "sticky left-0 z-20 bg-white relative after:absolute after:right-0 after:top-0 after:bottom-0 after:w-px after:bg-gray-200"
+            sticky_classes << "sticky left-0 z-20 bg-background-elevated relative after:absolute after:right-0 after:top-0 after:bottom-0 after:w-px after:bg-border"
             is_sticky = true
           elsif sticky == :last && is_last
-            sticky_classes << "sticky right-0 z-20 bg-white relative before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px before:bg-gray-200"
+            sticky_classes << "sticky right-0 z-20 bg-background-elevated relative before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px before:bg-border"
             is_sticky = true
           elsif sticky == :both
             if is_first
-              sticky_classes << "sticky left-0 z-20 bg-white relative after:absolute after:right-0 after:top-0 after:bottom-0 after:w-px after:bg-gray-200"
+              sticky_classes << "sticky left-0 z-20 bg-background-elevated relative after:absolute after:right-0 after:top-0 after:bottom-0 after:w-px after:bg-border"
               is_sticky = true
             elsif is_last
-              sticky_classes << "sticky right-0 z-20 bg-white relative before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px before:bg-gray-200"
+              sticky_classes << "sticky right-0 z-20 bg-background-elevated relative before:absolute before:left-0 before:top-0 before:bottom-0 before:w-px before:bg-border"
               is_sticky = true
             end
           end
 
-          base_classes = ["px-6 py-4 text-sm text-gray-900 min-w-32 max-w-0"]
+          base_classes = ["px-wrapped py-list text-ui text-foreground min-w-32 max-w-0"]
           base_classes << "overflow-hidden" unless is_sticky
           classes = [base_classes, sticky_classes, css].flatten.compact.join(" ")
 
@@ -228,7 +228,7 @@ module Aeno::Table
 
     def table_classes
       [
-        "min-w-full divide-y divide-gray-200 table-fixed",
+        "min-w-full divide-y divide-border table-fixed",
         css
       ].compact.join(" ")
     end
@@ -255,7 +255,7 @@ module Aeno::Table
           end
         end
 
-        e.preview(css: "border border-gray-300") do |table|
+        e.preview(css: "border border-border") do |table|
           table.with_header do |h|
             h.with_column { "Product" }
             h.with_column { "Price" }

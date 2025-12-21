@@ -6,12 +6,12 @@ namespace :aeno do
 
     command = [
       Tailwindcss::Commands.compile_command.first,
-      "-i", Aeno::Engine.root.join("app/assets/stylesheets/aeno/application.tailwind.css").to_s,
+      "-i", Aeno::Engine.root.join("app/assets/stylesheets/aeno/engine.css").to_s,
       "-o", Aeno::Engine.root.join("app/assets/stylesheets/aeno/tailwind.css").to_s
     ]
 
     puts "Building Tailwind CSS..."
-    puts "Input:  #{Aeno::Engine.root.join("app/assets/stylesheets/aeno/application.tailwind.css")}"
+    puts "Input:  #{Aeno::Engine.root.join("app/assets/stylesheets/aeno/engine.css")}"
     puts "Output: #{Aeno::Engine.root.join("app/assets/stylesheets/aeno/tailwind.css")}"
     puts "Command: #{command.join(' ')}"
     puts ""
@@ -28,7 +28,7 @@ namespace :aeno do
 
     command = [
       Tailwindcss::Commands.compile_command.first,
-      "-i", Aeno::Engine.root.join("app/assets/stylesheets/aeno/application.tailwind.css").to_s,
+      "-i", Aeno::Engine.root.join("app/assets/stylesheets/aeno/engine.css").to_s,
       "-o", Aeno::Engine.root.join("app/assets/stylesheets/aeno/tailwind.css").to_s,
       "-w"
     ]

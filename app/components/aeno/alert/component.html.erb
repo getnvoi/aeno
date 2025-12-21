@@ -1,6 +1,15 @@
-<div class="rounded-lg border p-4 <%= variant_classes %>" data-variant="<%= variant %>">
-  <% if title.present? %>
-    <h5 class="font-medium mb-1"><%= title %></h5>
-  <% end %>
-  <div class="text-sm"><%= message %></div>
+<div class="<%= style(variant:) %>" data-variant="<%= variant %>">
+  <div class="flex items-start gap-3">
+    <% if icon.present? %>
+      <div class="flex-shrink-0 mt-0.5">
+        <%= lucide_icon(icon, class: "w-5 h-5") %>
+      </div>
+    <% end %>
+    <div class="flex-1">
+      <% if title.present? %>
+        <h5 class="font-medium mb-1"><%= title %></h5>
+      <% end %>
+      <div class="text-sm"><%= message %></div>
+    </div>
+  </div>
 </div>
