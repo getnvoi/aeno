@@ -123,6 +123,7 @@
     --spacing-space-lg: 1.5rem;
     --spacing-pad-sm: 0.5rem;
     --spacing-pad: 1rem;
+    --spacing-pad-lg: 1.5rem;
     --spacing-margin-xs: 0.125rem;
     --spacing-margin-sm: 0.25rem;
     --spacing-margin: 0.5rem;
@@ -454,6 +455,9 @@
   .mt-margin {
     margin-top: var(--spacing-margin);
   }
+  .mt-margin-lg {
+    margin-top: var(--spacing-margin-lg);
+  }
   .mt-margin-sm {
     margin-top: var(--spacing-margin-sm);
   }
@@ -492,6 +496,9 @@
   }
   .mb-12 {
     margin-bottom: calc(var(--spacing) * 12);
+  }
+  .mb-margin {
+    margin-bottom: var(--spacing-margin);
   }
   .mb-margin-lg {
     margin-bottom: var(--spacing-margin-lg);
@@ -1330,6 +1337,9 @@
   .p-pad {
     padding: var(--spacing-pad);
   }
+  .p-pad-lg {
+    padding: var(--spacing-pad-lg);
+  }
   .p-pad-sm {
     padding: var(--spacing-pad-sm);
   }
@@ -1380,6 +1390,9 @@
   }
   .px-list {
     padding-inline: var(--spacing-list);
+  }
+  .px-pad {
+    padding-inline: var(--spacing-pad);
   }
   .px-pad-sm {
     padding-inline: var(--spacing-pad-sm);
