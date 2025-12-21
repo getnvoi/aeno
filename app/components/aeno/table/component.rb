@@ -97,7 +97,7 @@ module Aeno::Table
             if selectable && is_first
               content_tag(:div, class: "flex items-center") do
                 safe_join([
-                  content_tag(:div, class: "mr-2 flex-shrink-0") do
+                  content_tag(:div, class: "mr-margin flex-shrink-0") do
                     render Aeno::Checkbox::Component.new(
                       name: "select_all",
                       value: "all",
@@ -192,7 +192,7 @@ module Aeno::Table
             if selectable && is_first
               content_tag(:div, class: "flex items-center") do
                 safe_join([
-                  content_tag(:div, class: "mr-2 flex-shrink-0") do
+                  content_tag(:div, class: "mr-margin flex-shrink-0") do
                     render Aeno::Checkbox::Component.new(
                       name: "row_ids[]",
                       value: row_id,

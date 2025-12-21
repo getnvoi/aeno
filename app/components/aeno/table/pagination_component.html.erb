@@ -1,5 +1,5 @@
 <div class="flex items-center justify-between px-2 py-4">
-  <div class="text-sm text-muted-foreground">
+  <div class="text-ui text-muted-foreground">
     <% if selected_count && selected_count > 0 %>
       <%= selected_count %> <%= translations[:of] %> <%= total_count %> <%= translations[:selected] %>
     <% end %>
@@ -7,7 +7,7 @@
 
   <div class="flex items-center space-x-space-lg">
     <div class="flex items-center space-x-space-sm">
-      <span class="text-sm truncate"><%= translations[:per_page] %></span>
+      <span class="text-ui truncate"><%= translations[:per_page] %></span>
       <%= render Aeno::Input::Select::Component.new(
         name: "per_page",
         id: "per_page",
@@ -23,24 +23,24 @@
       end %>
     </div>
 
-    <span class="text-sm text-foreground">
+    <span class="text-ui text-foreground">
       <%= translations[:page] %> <%= current_page %> <%= translations[:of] %> <%= total_pages %>
     </span>
 
     <div class="flex items-center space-x-space-sm">
-      <%= link_to page_url(1), data: { turbo_action: "replace" }, class: "inline-flex items-center justify-center rounded-md border border-border bg-background-elevated px-2 py-2 text-sm font-medium text-foreground hover:bg-secondary-hover disabled:opacity-disabled #{!can_previous? ? 'pointer-events-none opacity-disabled' : ''}" do %>
+      <%= link_to page_url(1), data: { turbo_action: "replace" }, class: "inline-flex items-center justify-center rounded-input border border-border bg-background-elevated px-pad-sm py-pad-sm text-ui font-weight-medium text-foreground hover:bg-secondary-hover disabled:opacity-disabled #{!can_previous? ? 'pointer-events-none opacity-disabled' : ''}" do %>
         <%= lucide_icon("chevrons-left", class: "size-4") %>
       <% end %>
 
-      <%= link_to page_url(current_page - 1), data: { turbo_action: "replace" }, class: "inline-flex items-center justify-center rounded-md border border-border bg-background-elevated px-2 py-2 text-sm font-medium text-foreground hover:bg-secondary-hover #{!can_previous? ? 'pointer-events-none opacity-disabled' : ''}" do %>
+      <%= link_to page_url(current_page - 1), data: { turbo_action: "replace" }, class: "inline-flex items-center justify-center rounded-input border border-border bg-background-elevated px-pad-sm py-pad-sm text-ui font-weight-medium text-foreground hover:bg-secondary-hover #{!can_previous? ? 'pointer-events-none opacity-disabled' : ''}" do %>
         <%= lucide_icon("chevron-left", class: "size-4") %>
       <% end %>
 
-      <%= link_to page_url(current_page + 1), data: { turbo_action: "replace" }, class: "inline-flex items-center justify-center rounded-md border border-border bg-background-elevated px-2 py-2 text-sm font-medium text-foreground hover:bg-secondary-hover #{!can_next? ? 'pointer-events-none opacity-disabled' : ''}" do %>
+      <%= link_to page_url(current_page + 1), data: { turbo_action: "replace" }, class: "inline-flex items-center justify-center rounded-input border border-border bg-background-elevated px-pad-sm py-pad-sm text-ui font-weight-medium text-foreground hover:bg-secondary-hover #{!can_next? ? 'pointer-events-none opacity-disabled' : ''}" do %>
         <%= lucide_icon("chevron-right", class: "size-4") %>
       <% end %>
 
-      <%= link_to page_url(total_pages), data: { turbo_action: "replace" }, class: "inline-flex items-center justify-center rounded-md border border-border bg-background-elevated px-2 py-2 text-sm font-medium text-foreground hover:bg-secondary-hover #{!can_next? ? 'pointer-events-none opacity-disabled' : ''}" do %>
+      <%= link_to page_url(total_pages), data: { turbo_action: "replace" }, class: "inline-flex items-center justify-center rounded-input border border-border bg-background-elevated px-pad-sm py-pad-sm text-ui font-weight-medium text-foreground hover:bg-secondary-hover #{!can_next? ? 'pointer-events-none opacity-disabled' : ''}" do %>
         <%= lucide_icon("chevrons-right", class: "size-4") %>
       <% end %>
     </div>

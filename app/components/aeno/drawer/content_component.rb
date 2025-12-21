@@ -36,8 +36,8 @@ module Aeno::Drawer
         <div class="flex items-center justify-between px-inset py-inset-compact border-b border-border flex-shrink-0">
           <div class="flex-1 min-w-0"><%= header %></div>
           <button data-action="click->aeno--drawer#close" type="button"
-                  class="ml-4 w-10 h-10 rounded-full bg-secondary-light hover:bg-secondary-hover flex items-center justify-center flex-shrink-0 transition-colors">
-            <%= lucide_icon("x", class: "text-muted-foreground w-5 h-5") %>
+                  class="ml-margin-lg w-icon-xl h-icon-xl rounded-full bg-secondary-light hover:bg-secondary-hover flex items-center justify-center flex-shrink-0 transition-colors">
+            <%= lucide_icon("x", class: "text-muted-foreground w-icon h-icon") %>
           </button>
         </div>
       <% end %>

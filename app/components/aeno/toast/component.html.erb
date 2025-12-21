@@ -3,7 +3,7 @@
      class="<%= style(variant:) %> animate-toast-enter">
   <div class="flex items-start gap-gap-lg">
     <div class="flex-shrink-0 mt-0.5">
-      <%= lucide_icon(icon_name, class: "h-5 w-5") %>
+      <%= lucide_icon(icon_name, class: "h-icon w-icon") %>
     </div>
     <div class="flex-1 min-w-0">
       <p class="text-ui font-weight-ui">
@@ -14,9 +14,9 @@
       <div class="flex-shrink-0">
         <button data-action="click-><%= controller_name %>#dismiss"
                 type="button"
-                class="w-6 h-6 rounded-full hover:bg-secondary-hover flex items-center justify-center transition-colors">
+                class="w-icon-md h-icon-md rounded-full hover:bg-secondary-hover flex items-center justify-center transition-colors">
           <span class="sr-only">Close</span>
-          <%= lucide_icon("x", class: "h-4 w-4") %>
+          <%= lucide_icon("x", class: "h-icon-sm w-icon-sm") %>
         </button>
       </div>
     <% end %>

@@ -25,8 +25,8 @@ module Aeno::Button
           font-weight-ui
           cursor-pointer
           [&>svg]:flex-shrink-0
-          [&>svg]:w-4
-          [&>svg]:h-4
+          [&>svg]:w-icon-sm
+          [&>svg]:h-icon-sm
         ]
       end
 

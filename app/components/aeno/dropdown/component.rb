@@ -48,7 +48,7 @@ module Aeno::Dropdown
              data-value="<%= value %>"
              data-action="click->aeno--dropdown#select">
             <div class="flex items-center space-x-space-sm">
-              <%= lucide_icon(icon, class: "w-4 h-4") if icon %>
+              <%= lucide_icon(icon, class: "w-icon-sm h-icon-sm") if icon %>
               <span><%= label %></span>
             </div>
           </a>
@@ -61,7 +61,7 @@ module Aeno::Dropdown
                   data-value="<%= value %>"
                   data-action="click->aeno--dropdown#select">
             <div class="flex items-center space-x-space-sm">
-              <%= lucide_icon(icon, class: "w-4 h-4") if icon %>
+              <%= lucide_icon(icon, class: "w-icon-sm h-icon-sm") if icon %>
               <span><%= label %></span>
             </div>
           </button>
@@ -75,7 +75,7 @@ module Aeno::Dropdown
       renders_many :items, "Aeno::Dropdown::Component::OptionComponent"
 
       erb_template <<~ERB
-        <div class="py-1" data-aeno--dropdown-target="group">
+        <div class="py-margin-sm" data-aeno--dropdown-target="group">
           <div class="px-list py-list text-ui font-weight-ui text-muted-foreground uppercase tracking-wider">
             <%= label %>
           </div>

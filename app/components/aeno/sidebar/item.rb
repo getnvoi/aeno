@@ -12,7 +12,7 @@ module Aeno::Sidebar
           text-foreground
           hover:bg-secondary-hover
           transition-colors
-          [&>svg]:w-4 [&>svg]:h-4 [&>svg]:flex-shrink-0
+          [&>svg]:w-icon-sm [&>svg]:h-icon-sm [&>svg]:flex-shrink-0
         ]
       end
 

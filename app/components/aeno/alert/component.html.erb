@@ -2,14 +2,14 @@
   <div class="flex items-start gap-gap-lg">
     <% if icon.present? %>
       <div class="flex-shrink-0 mt-0.5">
-        <%= lucide_icon(icon, class: "w-5 h-5") %>
+        <%= lucide_icon(icon, class: "w-icon h-icon") %>
       </div>
     <% end %>
     <div class="flex-1">
       <% if title.present? %>
-        <h5 class="font-medium mb-1"><%= title %></h5>
+        <h5 class="font-weight-medium mb-margin-sm"><%= title %></h5>
       <% end %>
-      <div class="text-sm"><%= message %></div>
+      <div class="text-ui"><%= message %></div>
     </div>
   </div>
 </div>
