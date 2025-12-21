@@ -35,7 +35,7 @@ class Aeno::FormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def field(field_type, name, options = {}, &block)
-    klass = "::Aeno::Input#{field_type.to_s.camelize}::Component".constantize
+    klass = "::Aeno::Input::#{field_type.to_s.camelize}::Component".constantize
     resolved_name = resolve_name(name)
     error_text = @object&.errors&.[](name)&.first
 

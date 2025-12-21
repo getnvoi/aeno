@@ -7,7 +7,9 @@ module Aeno::Input::Select
 
     option(:select_options, default: proc { [] })
 
-    renders_many :options, "OptionComponent"
+    renders_many :options, lambda { |**args|
+      OptionComponent.new(parent_value: value, **args)
+    }
 
     def before_render
       select_options.each do |opt|
@@ -20,9 +22,16 @@ module Aeno::Input::Select
       option(:label)
       option(:selected, default: proc { false })
       option(:disabled, default: proc { false })
+      option(:parent_value, optional: true)
+
+      def is_selected?
+        return selected if selected != false
+        return false if parent_value.nil?
+        parent_value.to_s == value.to_s
+      end
 
       erb_template <<~ERB
-        <option value="<%= value %>" <%= 'selected' if selected %> <%= 'disabled' if disabled %>>
+        <option value="<%= value %>" <%= 'selected' if is_selected? %> <%= 'disabled' if disabled %>>
           <%= label %>
         </option>
       ERB

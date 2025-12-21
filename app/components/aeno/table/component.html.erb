@@ -20,17 +20,21 @@
     </div>
   <% end %>
 
-  <%# Table %>
-  <div class="overflow-x-auto min-w-0">
-    <table class="<%= table_classes %>" <%= "id=\"#{id}\"" if id %>>
-      <%= header if header? %>
-      <tbody class="bg-white divide-y divide-gray-200">
-        <% rows.each do |row| %>
-          <%= row %>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+  <%# Table or Empty State %>
+  <% if rows.any? %>
+    <div class="overflow-x-auto min-w-0">
+      <table class="<%= table_classes %>" <%= "id=\"#{id}\"" if id %>>
+        <%= header if header? %>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <% rows.each do |row| %>
+            <%= row %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% elsif empty_state? %>
+    <%= empty_state %>
+  <% end %>
 
   <%# Pagination %>
   <% if pagination? %>
