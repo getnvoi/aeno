@@ -8,7 +8,7 @@ module Aeno::Sidebar
     style do
       base do
         %w[
-          flex w-full items-center gap-2 rounded-button px-list py-list text-left text-ui
+          flex w-full items-center gap-gap rounded-button px-list py-list text-left text-ui
           text-foreground
           hover:bg-secondary-hover
           transition-colors

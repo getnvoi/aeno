@@ -3,7 +3,7 @@
   <% if selectable && batch_actions.any? %>
     <div data-aeno--table-target="batchToolbar" class="hidden mb-4 p-4 bg-secondary-light rounded-lg flex items-center justify-between">
       <span data-aeno--table-target="selectedCount" class="text-sm font-medium text-foreground"></span>
-      <div class="flex gap-2">
+      <div class="flex gap-gap">
         <% batch_actions.each do |action| %>
           <%= action %>
         <% end %>
@@ -13,7 +13,7 @@
 
   <%# Filters toolbar (always visible when filters exist) %>
   <% if filters.any? %>
-    <div class="mb-4 flex gap-2 items-center">
+    <div class="mb-4 flex gap-gap items-center">
       <% filters.each do |filter| %>
         <%= filter %>
       <% end %>

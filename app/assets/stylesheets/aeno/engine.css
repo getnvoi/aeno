@@ -97,6 +97,46 @@
   --spacing-control-sm: 2rem;
   --spacing-control-lg: 3rem;
 
+  /* Gap spacing - Between flex/grid items */
+  --spacing-gap-sm: 0.25rem;   /* 4px - gap-1 */
+  --spacing-gap-xs: 0.375rem;  /* 6px - gap-1.5 */
+  --spacing-gap: 0.5rem;       /* 8px - gap-2 */
+  --spacing-gap-lg: 0.75rem;   /* 12px - gap-3 */
+
+  /* Space between - Adjacent elements */
+  --spacing-space-sm: 0.5rem;   /* 8px */
+  --spacing-space: 0.75rem;     /* 12px */
+  --spacing-space-md: 1rem;     /* 16px */
+  --spacing-space-lg: 1.5rem;   /* 24px */
+
+  /* Padding - General padding scale */
+  --spacing-pad-sm: 0.5rem;   /* 8px */
+  --spacing-pad: 1rem;        /* 16px */
+  --spacing-pad-lg: 1.5rem;   /* 24px */
+  --spacing-pad-xl: 2rem;     /* 32px */
+
+  /* Margin - General margin scale */
+  --spacing-margin-xs: 0.125rem;  /* 2px */
+  --spacing-margin-sm: 0.25rem;   /* 4px */
+  --spacing-margin: 0.5rem;       /* 8px */
+  --spacing-margin-lg: 1rem;      /* 16px */
+  --spacing-margin-xl: 1.5rem;    /* 24px */
+
+  /* Icon sizes */
+  --spacing-icon-xs: 0.75rem;   /* 12px */
+  --spacing-icon-sm: 1rem;      /* 16px */
+  --spacing-icon: 1.25rem;      /* 20px */
+  --spacing-icon-md: 1.5rem;    /* 24px */
+  --spacing-icon-lg: 2rem;      /* 32px */
+  --spacing-icon-xl: 2.5rem;    /* 40px */
+  --spacing-icon-2xl: 3rem;     /* 48px */
+
+  /* Component sizing */
+  --spacing-dropdown-width: 14rem;     /* 224px */
+  --spacing-max-content: 24rem;        /* 384px */
+  --spacing-max-dropdown: 15rem;       /* 240px */
+  --spacing-min-input: 7rem;           /* 112px */
+
   /* ==========================================================================
      TYPOGRAPHY SYSTEM
      ========================================================================== */
@@ -119,6 +159,17 @@
   --font-weight-drawer-title: 600;
   --text-drawer-description: 0.875rem;
   --leading-drawer-description: 1.25rem;
+
+  /* Additional text sizes */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --leading-xs: 1rem;
+  --leading-2xl: 2rem;
+
+  /* Additional font weights */
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
   /* ==========================================================================
      BORDER RADIUS

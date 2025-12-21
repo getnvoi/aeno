@@ -20,7 +20,7 @@ module Aeno::Button
           inline-flex
           items-center
           justify-center
-          gap-2
+          gap-gap
           text-ui
           font-weight-ui
           cursor-pointer

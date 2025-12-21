@@ -28,7 +28,7 @@ module Aeno::Drawer
       "[&_[data-role='layout-footer']]:px-inset",
       "[&_[data-role='layout-footer']]:py-inset-compact",
       "[&_[data-role='layout-footer']]:flex",
-      "[&_[data-role='layout-footer']]:gap-2"
+      "[&_[data-role='layout-footer']]:gap-gap"
     ].join(" ").freeze
 
     erb_template <<~ERB

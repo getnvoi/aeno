@@ -13,7 +13,7 @@ module Aeno::Sidebar
     end
 
     style :menu do
-      base { "flex w-full min-w-0 flex-col gap-1" }
+      base { "flex w-full min-w-0 flex-col gap-gap-sm" }
     end
 
     erb_template <<~ERB
