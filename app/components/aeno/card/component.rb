@@ -6,7 +6,7 @@ module Aeno::Card
 
     examples("Card", description: "Container with shadow and border") do |b|
       b.example(:default, title: "Default") do |e|
-        e.preview css: "px-wrapped py-wrapped"
+        e.preview css: "px-inset py-inset"
       end
 
       b.example(:compact, title: "Compact Padding") do |e|

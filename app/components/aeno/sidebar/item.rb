@@ -18,7 +18,7 @@ module Aeno::Sidebar
 
       variants do
         active do
-          yes { "bg-primary-light font-ui-weight text-primary-solid" }
+          yes { "bg-primary-light font-weight-ui text-primary-solid" }
         end
       end
     end

@@ -6,7 +6,7 @@ module Aeno::Toast
     option :dismissible, default: proc { true }
 
     style do
-      base { "pointer-events-auto w-full max-w-sm rounded-card border px-wrapped py-wrapped shadow-lg" }
+      base { "pointer-events-auto w-full max-w-sm rounded-card border px-inset py-inset shadow-lg" }
 
       variants do
         variant do

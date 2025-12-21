@@ -91,7 +91,7 @@ module Aeno::Table
             end
           end
 
-          classes = ["px-wrapped py-list text-left text-ui font-ui-weight text-muted-foreground uppercase tracking-wider", sticky_classes, css].flatten.compact.join(" ")
+          classes = ["px-inset py-list text-left text-ui font-weight-ui text-muted-foreground uppercase tracking-wider", sticky_classes, css].flatten.compact.join(" ")
 
           content_tag(:th, scope: "col", class: classes) do
             if selectable && is_first
@@ -184,7 +184,7 @@ module Aeno::Table
             end
           end
 
-          base_classes = ["px-wrapped py-list text-ui text-foreground min-w-32 max-w-0"]
+          base_classes = ["px-inset py-list text-ui text-foreground min-w-32 max-w-0"]
           base_classes << "overflow-hidden" unless is_sticky
           classes = [base_classes, sticky_classes, css].flatten.compact.join(" ")
 

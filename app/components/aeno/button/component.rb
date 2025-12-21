@@ -22,7 +22,7 @@ module Aeno::Button
           justify-center
           gap-2
           text-ui
-          font-ui-weight
+          font-weight-ui
           cursor-pointer
           [&>svg]:flex-shrink-0
           [&>svg]:w-4

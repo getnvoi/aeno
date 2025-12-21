@@ -9,7 +9,7 @@ module Aeno::Drawer
     renders_one(:drawer_content, "Aeno::Drawer::ContentComponent")
 
     style(:bg) do
-      base { "bg-slate-800/70 fixed inset-0 transition-opacity duration-300 opacity-0 pointer-events-none" }
+      base { "bg-secondary-dark/70 fixed inset-0 transition-opacity duration-300 opacity-0 pointer-events-none" }
     end
 
     style(:wrapper) do

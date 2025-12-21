@@ -47,7 +47,7 @@ module Aeno::Input
     private
 
       def label_html
-        content_tag(:label, for: id || name, class: "block text-ui font-ui-weight text-foreground mb-1") do
+        content_tag(:label, for: id || name, class: "block text-ui font-weight-ui text-foreground mb-1") do
           safe_join([
             label,
             (content_tag(:span, "*", class: "text-destructive-solid") if required)

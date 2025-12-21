@@ -76,7 +76,7 @@ module Aeno::Dropdown
 
       erb_template <<~ERB
         <div class="py-1" data-aeno--dropdown-target="group">
-          <div class="px-list py-list text-ui font-ui-weight text-muted-foreground uppercase tracking-wider">
+          <div class="px-list py-list text-ui font-weight-ui text-muted-foreground uppercase tracking-wider">
             <%= label %>
           </div>
           <% items.each do |item| %>

@@ -11,8 +11,8 @@
       ) %>
     </div>
     <div class="text-sm/6">
-      <%= label_tag(checkbox_id, label, class: "font-medium text-gray-900 dark:text-white") %>
-      <p id="<%= checkbox_id %>-description" class="text-gray-500 dark:text-gray-400"><%= description %></p>
+      <%= label_tag(checkbox_id, label, class: "font-medium text-foreground") %>
+      <p id="<%= checkbox_id %>-description" class="text-muted-foreground"><%= description %></p>
     </div>
   </div>
 <% else %>
@@ -26,6 +26,6 @@
         id: checkbox_id
       ) %>
     </div>
-    <%= label_tag(checkbox_id, label, class: "block text-sm/6 font-medium text-gray-900 dark:text-white") %>
+    <%= label_tag(checkbox_id, label, class: "block text-sm/6 font-medium text-foreground") %>
   </div>
 <% end %>

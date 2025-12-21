@@ -19,21 +19,21 @@ module Aeno::Drawer
       "[&_[data-role='layout-body']]:flex-col",
       "[&_[data-role='layout-content']]:flex-1",
       "[&_[data-role='layout-content']]:overflow-y-auto",
-      "[&_[data-role='layout-content']]:px-wrapped",
-      "[&_[data-role='layout-content']]:py-wrapped",
+      "[&_[data-role='layout-content']]:px-inset",
+      "[&_[data-role='layout-content']]:py-inset",
       "[&_[data-role='layout-content']]:space-y-4",
       "[&_[data-role='layout-footer']]:flex-shrink-0",
       "[&_[data-role='layout-footer']]:border-t",
       "[&_[data-role='layout-footer']]:border-border",
-      "[&_[data-role='layout-footer']]:px-wrapped",
-      "[&_[data-role='layout-footer']]:py-wrapped",
+      "[&_[data-role='layout-footer']]:px-inset",
+      "[&_[data-role='layout-footer']]:py-inset-compact",
       "[&_[data-role='layout-footer']]:flex",
       "[&_[data-role='layout-footer']]:gap-2"
     ].join(" ").freeze
 
     erb_template <<~ERB
       <% if header %>
-        <div class="flex items-center justify-between px-wrapped py-wrapped-title border-b border-border flex-shrink-0">
+        <div class="flex items-center justify-between px-inset py-inset-compact border-b border-border flex-shrink-0">
           <div class="flex-1 min-w-0"><%= header %></div>
           <button data-action="click->aeno--drawer#close" type="button"
                   class="ml-4 w-10 h-10 rounded-full bg-secondary-light hover:bg-secondary-hover flex items-center justify-center flex-shrink-0 transition-colors">
@@ -45,11 +45,11 @@ module Aeno::Drawer
       <% if form %>
         <%= form %>
       <% else %>
-        <div class="flex-1 overflow-y-auto px-wrapped py-wrapped">
+        <div class="flex-1 overflow-y-auto px-inset py-inset">
           <%= content %>
         </div>
         <% if footer %>
-          <div class="border-t border-border px-wrapped py-wrapped flex-shrink-0">
+          <div class="border-t border-border px-inset py-inset-compact flex-shrink-0">
             <%= footer %>
           </div>
         <% end %>

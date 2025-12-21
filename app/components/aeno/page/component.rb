@@ -10,7 +10,7 @@ module Aeno::Page
       b.example(:default, title: "Default") do |e|
         e.preview title: "Page Title", subtitle: "Subtitle", description: "This is a page description" do |page|
           page.with_actions_area do
-            '<button class="px-4 py-2 bg-slate-600 text-white rounded">Action</button>'.html_safe
+            render(Aeno::Button::Component.new(label: "Action", variant: :primary))
           end
           "Page content goes here"
         end
