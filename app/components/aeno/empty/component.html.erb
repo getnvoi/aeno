@@ -1,14 +1,14 @@
-<div class="px-wrapped py-wrapped" data-controller="<%= controller_name %>">
-  <div class="flex items-center justify-center flex-col border border-dashed border-border rounded-card px-wrapped py-wrapped min-h-[300px]">
-    <div class="flex items-center justify-center flex-col space-y-4">
+<div class="px-inset py-inset" data-controller="<%= controller_name %>">
+  <div class="flex items-center justify-center flex-col border border-dashed border-border rounded-card px-inset py-inset min-h-[300px]">
+    <div class="flex items-center justify-center flex-col space-y-space-md">
       <% if icon %>
         <div class="text-muted-foreground">
-          <%= lucide_icon(icon, class: "w-12 h-12") %>
+          <%= lucide_icon(icon, class: "w-icon-2xl h-icon-2xl") %>
         </div>
       <% end %>
 
       <% if title %>
-        <div class="font-drawer-title-weight text-drawer-title leading-drawer-title text-foreground"><%= title %></div>
+        <div class="font-weight-drawer-title text-drawer-title leading-drawer-title text-foreground"><%= title %></div>
       <% end %>
 
       <% if description %>
@@ -24,7 +24,7 @@
       <% end %>
 
       <% if actions.any? %>
-        <div class="flex gap-2 mt-2">
+        <div class="flex gap-gap mt-margin">
           <% actions.each do |action| %>
             <%= action %>
           <% end %>

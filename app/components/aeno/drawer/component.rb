@@ -9,7 +9,7 @@ module Aeno::Drawer
     renders_one(:drawer_content, "Aeno::Drawer::ContentComponent")
 
     style(:bg) do
-      base { "bg-slate-800/70 fixed inset-0 transition-opacity duration-300 opacity-0 pointer-events-none" }
+      base { "bg-secondary-dark/70 fixed inset-0 transition-opacity duration-300 opacity-0 pointer-events-none" }
     end
 
     style(:wrapper) do
@@ -54,18 +54,18 @@ module Aeno::Drawer
     examples("Drawer", description: "Slide-out panel") do |b|
       b.example(:basic, title: "Basic Content") do |e|
         e.preview standalone: true do |drawer|
-          drawer.with_trigger { '<button class="px-4 py-2 bg-slate-600 text-white rounded">Open Drawer</button>'.html_safe }
-          '<div class="p-6"><p>Simple drawer content</p></div>'.html_safe
+          drawer.with_trigger { '<button class="px-pad py-pad-sm bg-slate-600 text-white rounded-input">Open Drawer</button>'.html_safe }
+          '<div class="p-pad-lg"><p>Simple drawer content</p></div>'.html_safe
         end
       end
 
       b.example(:scrollable, title: "Long Scrollable Content") do |e|
         e.preview standalone: true do |drawer|
-          drawer.with_trigger { '<button class="px-4 py-2 bg-slate-600 text-white rounded">Open Scrollable Drawer</button>'.html_safe }
-          content = '<div class="flex-1 overflow-y-auto p-6">'
+          drawer.with_trigger { '<button class="px-pad py-pad-sm bg-slate-600 text-white rounded-input">Open Scrollable Drawer</button>'.html_safe }
+          content = '<div class="flex-1 overflow-y-auto p-pad-lg">'
           20.times do |i|
-            content += "<h3 class='font-semibold mt-4 mb-2'>Section #{i + 1}</h3>"
-            content += "<p class='text-gray-600 mb-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>"
+            content += "<h3 class='font-weight-semibold mt-margin-lg mb-margin'>Section #{i + 1}</h3>"
+            content += "<p class='text-gray-600 mb-margin'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>"
           end
           content += '</div>'
           content.html_safe
@@ -76,11 +76,11 @@ module Aeno::Drawer
         e.preview_template standalone: true, template: <<~TEMPLATE
           <%= render(Aeno::Drawer::Component.new(standalone: true)) do |drawer| %>
             <% drawer.with_trigger do %>
-              <button class="px-4 py-2 bg-slate-600 text-white rounded">Open with Header</button>
+              <button class="px-pad py-pad-sm bg-slate-600 text-white rounded-input">Open with Header</button>
             <% end %>
             <% drawer.with_drawer_content do |content| %>
               <% content.with_header do %>
-                <h2 class="text-lg font-semibold">Header Title</h2>
+                <h2 class="text-drawer-title font-weight-semibold">Header Title</h2>
               <% end %>
               <div class="space-y-4">
                 <p class="text-gray-600">Content with header and close button.</p>
@@ -95,13 +95,13 @@ module Aeno::Drawer
         e.preview_template standalone: true, template: <<~TEMPLATE
           <%= render(Aeno::Drawer::Component.new(standalone: true)) do |drawer| %>
             <% drawer.with_trigger do %>
-              <button class="px-4 py-2 bg-slate-600 text-white rounded">Open with Footer</button>
+              <button class="px-pad py-pad-sm bg-slate-600 text-white rounded-input">Open with Footer</button>
             <% end %>
             <% drawer.with_drawer_content do |content| %>
               <% content.with_footer do %>
                 <div class="flex gap-2">
-                  <button class="px-4 py-2 bg-slate-600 text-white rounded">Save</button>
-                  <button class="px-4 py-2 bg-gray-200 rounded" data-action="click->aeno--drawer#close">Cancel</button>
+                  <button class="px-pad py-pad-sm bg-slate-600 text-white rounded-input">Save</button>
+                  <button class="px-pad py-pad-sm bg-gray-200 rounded-input" data-action="click->aeno--drawer#close">Cancel</button>
                 </div>
               <% end %>
               <div class="space-y-4">
@@ -117,30 +117,30 @@ module Aeno::Drawer
         e.preview_template standalone: true, template: <<~TEMPLATE
           <%= render(Aeno::Drawer::Component.new(standalone: true, width: "w-2/5")) do |drawer| %>
             <% drawer.with_trigger do %>
-              <button class="px-4 py-2 bg-slate-600 text-white rounded">Open Full Drawer</button>
+              <button class="px-pad py-pad-sm bg-slate-600 text-white rounded-input">Open Full Drawer</button>
             <% end %>
             <% drawer.with_drawer_content do |content| %>
               <% content.with_header do %>
-                <h2 class="text-lg font-semibold">Edit Profile</h2>
+                <h2 class="text-drawer-title font-weight-semibold">Edit Profile</h2>
               <% end %>
               <% content.with_footer do %>
                 <div class="flex gap-2">
-                  <button class="px-4 py-2 bg-slate-600 text-white rounded">Save Changes</button>
-                  <button class="px-4 py-2 bg-gray-200 rounded" data-action="click->aeno--drawer#close">Cancel</button>
+                  <button class="px-pad py-pad-sm bg-slate-600 text-white rounded-input">Save Changes</button>
+                  <button class="px-pad py-pad-sm bg-gray-200 rounded-input" data-action="click->aeno--drawer#close">Cancel</button>
                 </div>
               <% end %>
               <div class="space-y-4">
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                  <input type="text" class="w-full px-3 py-2 border rounded" placeholder="John Doe">
+                  <label class="block text-ui font-weight-medium text-gray-700 mb-margin-sm">Name</label>
+                  <input type="text" class="w-full px-pad py-pad-sm border rounded-input" placeholder="John Doe">
                 </div>
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                  <input type="email" class="w-full px-3 py-2 border rounded" placeholder="john@example.com">
+                  <label class="block text-ui font-weight-medium text-gray-700 mb-margin-sm">Email</label>
+                  <input type="email" class="w-full px-pad py-pad-sm border rounded-input" placeholder="john@example.com">
                 </div>
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-1">Bio</label>
-                  <textarea class="w-full px-3 py-2 border rounded" rows="4" placeholder="Tell us about yourself..."></textarea>
+                  <label class="block text-ui font-weight-medium text-gray-700 mb-margin-sm">Bio</label>
+                  <textarea class="w-full px-pad py-pad-sm border rounded-input" rows="4" placeholder="Tell us about yourself..."></textarea>
                 </div>
               </div>
             <% end %>
@@ -154,20 +154,20 @@ module Aeno::Drawer
             <% drawer1.with_trigger do %>
               <%= render(Aeno::Button::Component.new(variant: :default, label: "Open First Drawer")) %>
             <% end %>
-            <div class="p-6">
-              <h2 class="text-lg font-semibold mb-4">First Drawer</h2>
+            <div class="p-pad-lg">
+              <h2 class="text-drawer-title font-weight-semibold mb-margin-lg">First Drawer</h2>
               <%= render(Aeno::Drawer::Component.new(standalone: true, width: "w-[650px]")) do |drawer2| %>
                 <% drawer2.with_trigger do %>
                   <%= render(Aeno::Button::Component.new(variant: :default, label: "Open Second Drawer")) %>
                 <% end %>
-                <div class="p-6">
-                  <h2 class="text-lg font-semibold mb-4">Second Drawer</h2>
+                <div class="p-pad-lg">
+                  <h2 class="text-drawer-title font-weight-semibold mb-margin-lg">Second Drawer</h2>
                   <%= render(Aeno::Drawer::Component.new(standalone: true, width: "w-[600px]")) do |drawer3| %>
                     <% drawer3.with_trigger do %>
                       <%= render(Aeno::Button::Component.new(variant: :default, label: "Open Third Drawer")) %>
                     <% end %>
-                    <div class="p-6">
-                      <h2 class="text-lg font-semibold">Third Drawer</h2>
+                    <div class="p-pad-lg">
+                      <h2 class="text-drawer-title font-weight-semibold">Third Drawer</h2>
                       <p class="text-gray-600">This demonstrates z-index stacking</p>
                     </div>
                   <% end %>

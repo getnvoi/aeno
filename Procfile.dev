@@ -1,2 +1,2 @@
 web: test/dummy/bin/rails s -p3000
-css: test/dummy/bin/rake app:tailwindcss:watch
+css: bundle exec rake app:aeno:tailwind_engine_watch

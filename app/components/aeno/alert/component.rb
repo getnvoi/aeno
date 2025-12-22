@@ -10,7 +10,7 @@ module Aeno
       option :dismissible, default: -> { false }
 
       style do
-        base { "rounded-card border px-wrapped py-wrapped" }
+        base { "rounded-card border px-inset py-inset" }
 
         variants do
           variant do

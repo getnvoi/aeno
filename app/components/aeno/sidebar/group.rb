@@ -5,15 +5,15 @@ module Aeno::Sidebar
     renders_many :items, Item
 
     style :container do
-      base { "flex w-full min-w-0 flex-col px-0 py-1" }
+      base { "flex w-full min-w-0 flex-col px-0 py-margin-sm" }
     end
 
     style :label do
-      base { "text-muted-foreground h-8 flex items-center px-list text-ui font-ui-weight uppercase tracking-wide" }
+      base { "text-muted-foreground h-icon-lg flex items-center px-list text-ui font-weight-ui uppercase tracking-wide" }
     end
 
     style :menu do
-      base { "flex w-full min-w-0 flex-col gap-1" }
+      base { "flex w-full min-w-0 flex-col gap-gap-sm" }
     end
 
     erb_template <<~ERB

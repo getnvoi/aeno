@@ -47,7 +47,7 @@ module Aeno::Input
     private
 
       def label_html
-        content_tag(:label, for: id || name, class: "block text-ui font-ui-weight text-foreground mb-1") do
+        content_tag(:label, for: id || name, class: "block text-ui font-weight-ui text-foreground mb-margin-sm") do
           safe_join([
             label,
             (content_tag(:span, "*", class: "text-destructive-solid") if required)
@@ -56,11 +56,11 @@ module Aeno::Input
       end
 
       def error_html
-        content_tag(:p, error_text, class: "mt-1 text-drawer-description text-destructive-dark")
+        content_tag(:p, error_text, class: "mt-margin-sm text-drawer-description text-destructive-dark")
       end
 
       def helper_html
-        content_tag(:p, helper_text, class: "mt-1 text-drawer-description text-muted-foreground")
+        content_tag(:p, helper_text, class: "mt-margin-sm text-drawer-description text-muted-foreground")
       end
 
       examples("Input", description: "Form input components") do |b|

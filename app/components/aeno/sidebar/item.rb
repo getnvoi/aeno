@@ -8,17 +8,17 @@ module Aeno::Sidebar
     style do
       base do
         %w[
-          flex w-full items-center gap-2 rounded-button px-list py-list text-left text-ui
+          flex w-full items-center gap-gap rounded-button px-list py-list text-left text-ui
           text-foreground
           hover:bg-secondary-hover
           transition-colors
-          [&>svg]:w-4 [&>svg]:h-4 [&>svg]:flex-shrink-0
+          [&>svg]:w-icon-sm [&>svg]:h-icon-sm [&>svg]:flex-shrink-0
         ]
       end
 
       variants do
         active do
-          yes { "bg-primary-light font-ui-weight text-primary-solid" }
+          yes { "bg-primary-light font-weight-ui text-primary-solid" }
         end
       end
     end

@@ -9,147 +9,193 @@
    Base color palette (solid/light/dark variants) defines the app's look & feel.
    All other tokens derive from these base colors.
    ============================================================================= */
-
 @theme {
   /* ==========================================================================
      BASE COLOR PALETTE - Top-level colors that define the app's look & feel
      ========================================================================== */
 
   /* PRIMARY (Blue) - Main actions, links, focus states */
-  --color-primary-solid: #2563eb; /* blue-600 - buttons, emphasis */
-  --color-primary-light: #eff6ff; /* blue-50 - alert/badge bg */
-  --color-primary-dark: #1e3a8a; /* blue-900 - text on light bg */
+  --color-primary-solid: #2563eb;
+  --color-primary-light: #eff6ff;
+  --color-primary-dark: #1e3a8a;
 
   /* SECONDARY (Slate) - Neutral actions, default text */
-  --color-secondary-solid: #475569; /* slate-600 - muted emphasis */
-  --color-secondary-light: #f8fafc; /* slate-50 - page background */
-  --color-secondary-dark: #0f172a; /* slate-900 - body text */
+  --color-secondary-solid: #475569;
+  --color-secondary-light: #f8fafc;
+  --color-secondary-dark: #0f172a;
 
   /* DESTRUCTIVE (Red) - Dangerous actions, errors */
-  --color-destructive-solid: #dc2626; /* red-600 - delete buttons */
-  --color-destructive-light: #fef2f2; /* red-50 - error alert bg */
-  --color-destructive-dark: #7f1d1d; /* red-900 - error text */
+  --color-destructive-solid: #dc2626;
+  --color-destructive-light: #fef2f2;
+  --color-destructive-dark: #7f1d1d;
 
   /* SUCCESS (Green) - Success states, confirmations */
-  --color-success-solid: #16a34a; /* green-600 - success buttons */
-  --color-success-light: #f0fdf4; /* green-50 - success alert bg */
-  --color-success-dark: #14532d; /* green-900 - success text */
+  --color-success-solid: #16a34a;
+  --color-success-light: #f0fdf4;
+  --color-success-dark: #14532d;
 
   /* WARNING (Amber) - Warning states, cautions */
-  --color-warning-solid: #d97706; /* amber-600 - warning emphasis */
-  --color-warning-light: #fffbeb; /* amber-50 - warning alert bg */
-  --color-warning-dark: #78350f; /* amber-900 - warning text */
+  --color-warning-solid: #d97706;
+  --color-warning-light: #fffbeb;
+  --color-warning-dark: #78350f;
 
   /* INFO (Sky) - Informational states */
-  --color-info-solid: #0284c7; /* sky-600 - info emphasis */
-  --color-info-light: #f0f9ff; /* sky-50 - info alert bg */
-  --color-info-dark: #0c4a6e; /* sky-900 - info text */
+  --color-info-solid: #0284c7;
+  --color-info-light: #f0f9ff;
+  --color-info-dark: #0c4a6e;
 
   /* DEFAULT (Slate) - Neutral/default states */
-  --color-default-solid: #64748b; /* slate-500 - default emphasis */
-  --color-default-light: #f8fafc; /* slate-50 - default alert bg */
-  --color-default-dark: #475569; /* slate-600 - default text */
+  --color-default-solid: #64748b;
+  --color-default-light: #f8fafc;
+  --color-default-dark: #475569;
 
   /* ==========================================================================
      SEMANTIC TOKENS - Derive from base palette
      ========================================================================== */
 
   /* Global application colors */
-  --color-background: var(--color-secondary-light); /* slate-50 */
-  --color-background-elevated: #ffffff; /* white for cards/drawers */
-  --color-foreground: var(--color-secondary-dark); /* slate-900 */
-  --color-border: #e2e8f0; /* slate-200 */
-  --color-muted-foreground: #64748b; /* slate-500 */
-
-  /* Opacities */
-  --opacity-muted: 0.6;
-  --opacity-disabled: 0.5;
+  --color-background: var(--color-secondary-light);
+  --color-background-elevated: #ffffff;
+  --color-foreground: var(--color-secondary-dark);
+  --color-border: #e2e8f0;
+  --color-muted-foreground: #64748b;
 
   /* Button hover states */
-  --color-primary-hover: #1d4ed8; /* blue-700 */
-  --color-secondary-hover: #f1f5f9; /* slate-100 */
-  --color-destructive-hover: #b91c1c; /* red-700 */
-  --color-success-hover: #15803d; /* green-700 */
-  --color-warning-hover: #b45309; /* amber-700 */
-  --color-info-hover: #0369a1; /* sky-700 */
+  --color-primary-hover: #1d4ed8;
+  --color-secondary-hover: #f1f5f9;
+  --color-destructive-hover: #b91c1c;
+  --color-success-hover: #15803d;
+  --color-warning-hover: #b45309;
+  --color-info-hover: #0369a1;
 
   /* ==========================================================================
      SPACING SYSTEM
      ========================================================================== */
 
   /* List spacing - Compact vertical lists (sidebar, dropdown, table) */
-  --spacing-list-x: 1rem; /* 16px */
-  --spacing-list-y: 0.5rem; /* 8px */
+  --spacing-list: 1rem;
 
   /* Layout spacing - Page containers, sections */
-  --spacing-layout-x: 2rem; /* 32px */
-  --spacing-layout-y: 1.5rem; /* 24px */
+  --spacing-layout: 2rem;
 
-  /* Wrapped spacing - Cards, drawers, modals */
-  --spacing-wrapped-x: 1.5rem; /* 24px */
-  --spacing-wrapped-y: 1.5rem; /* 24px */
-  --spacing-wrapped-title-y: 0.75rem; /* 12px - HALF of wrapped-x */
+  /* Inset spacing - Cards, drawers, modals */
+  --spacing-inset: 1.5rem;
+  --spacing-inset-compact: 0.75rem;
+
+  /* Button padding */
+  --spacing-button-x: 1rem;
+  --spacing-button-x-sm: 0.75rem;
+  --spacing-button-x-lg: 1.5rem;
+
+  /* Input padding */
+  --spacing-input-x: 0.75rem;
+  --spacing-input-x-sm: 0.625rem;
+  --spacing-input-x-lg: 1rem;
+
+  /* Control heights - using spacing namespace for sizing */
+  --spacing-control: 2.5rem;
+  --spacing-control-sm: 2rem;
+  --spacing-control-lg: 3rem;
+
+  /* Gap spacing - Between flex/grid items */
+  --spacing-gap-sm: 0.25rem;   /* 4px - gap-1 */
+  --spacing-gap-xs: 0.375rem;  /* 6px - gap-1.5 */
+  --spacing-gap: 0.5rem;       /* 8px - gap-2 */
+  --spacing-gap-lg: 0.75rem;   /* 12px - gap-3 */
+
+  /* Space between - Adjacent elements */
+  --spacing-space-sm: 0.5rem;   /* 8px */
+  --spacing-space: 0.75rem;     /* 12px */
+  --spacing-space-md: 1rem;     /* 16px */
+  --spacing-space-lg: 1.5rem;   /* 24px */
+
+  /* Padding - General padding scale */
+  --spacing-pad-sm: 0.5rem;   /* 8px */
+  --spacing-pad: 1rem;        /* 16px */
+  --spacing-pad-lg: 1.5rem;   /* 24px */
+  --spacing-pad-xl: 2rem;     /* 32px */
+
+  /* Margin - General margin scale */
+  --spacing-margin-xs: 0.125rem;  /* 2px */
+  --spacing-margin-sm: 0.25rem;   /* 4px */
+  --spacing-margin: 0.5rem;       /* 8px */
+  --spacing-margin-lg: 1rem;      /* 16px */
+  --spacing-margin-xl: 1.5rem;    /* 24px */
+
+  /* Icon sizes */
+  --spacing-icon-xs: 0.75rem;   /* 12px */
+  --spacing-icon-sm: 1rem;      /* 16px */
+  --spacing-icon: 1.25rem;      /* 20px */
+  --spacing-icon-md: 1.5rem;    /* 24px */
+  --spacing-icon-lg: 2rem;      /* 32px */
+  --spacing-icon-xl: 2.5rem;    /* 40px */
+  --spacing-icon-2xl: 3rem;     /* 48px */
+
+  /* Component sizing */
+  --spacing-dropdown-width: 14rem;     /* 224px */
+  --spacing-max-content: 24rem;        /* 384px */
+  --spacing-max-dropdown: 15rem;       /* 240px */
+  --spacing-min-input: 7rem;           /* 112px */
 
   /* ==========================================================================
      TYPOGRAPHY SYSTEM
      ========================================================================== */
 
   /* UI text - Buttons, labels, table cells, form fields */
-  --text-ui: 0.875rem; /* 14px */
-  --text-ui-line-height: 1.25rem; /* 20px */
-  --font-ui-weight: 500;
+  --text-ui: 0.875rem;
+  --leading-ui: 1.25rem;
+  --font-weight-ui: 500;
 
   /* Page typography - Main content headings */
-  --text-page-title: 1.875rem; /* 30px */
-  --text-page-title-line-height: 2.25rem;
-  --font-page-title-weight: 700;
-  --text-page-description: 1rem; /* 16px */
-  --text-page-description-line-height: 1.5rem;
+  --text-page-title: 1.875rem;
+  --leading-page-title: 2.25rem;
+  --font-weight-page-title: 700;
+  --text-page-description: 1rem;
+  --leading-page-description: 1.5rem;
 
   /* Drawer typography - Modal/drawer headings */
-  --text-drawer-title: 1.125rem; /* 18px */
-  --text-drawer-title-line-height: 1.75rem;
-  --font-drawer-title-weight: 600;
-  --text-drawer-description: 0.875rem; /* 14px */
-  --text-drawer-description-line-height: 1.25rem;
+  --text-drawer-title: 1.125rem;
+  --leading-drawer-title: 1.75rem;
+  --font-weight-drawer-title: 600;
+  --text-drawer-description: 0.875rem;
+  --leading-drawer-description: 1.25rem;
 
-  /* ==========================================================================
-     CONTROL SIZING - Buttons, Inputs, Selects
-     ========================================================================== */
+  /* Additional text sizes */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --leading-xs: 1rem;
+  --leading-2xl: 2rem;
 
-  /* Control heights */
-  --height-control: 2.5rem; /* 40px - default */
-  --height-control-sm: 2rem; /* 32px */
-  --height-control-lg: 3rem; /* 48px */
-
-  /* Button padding */
-  --spacing-button-x: 1rem; /* 16px */
-  --spacing-button-x-sm: 0.75rem; /* 12px */
-  --spacing-button-x-lg: 1.5rem; /* 24px */
-
-  /* Input padding */
-  --spacing-input-x: 0.75rem; /* 12px */
-  --spacing-input-x-sm: 0.625rem; /* 10px */
-  --spacing-input-x-lg: 1rem; /* 16px */
+  /* Additional font weights */
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
   /* ==========================================================================
      BORDER RADIUS
      ========================================================================== */
 
   /* Buttons */
-  --radius-button: 0.375rem; /* 6px */
-  --radius-button-sm: 0.25rem; /* 4px */
-  --radius-button-lg: 0.5rem; /* 8px */
+  --radius-button: 0.375rem;
+  --radius-button-sm: 0.25rem;
+  --radius-button-lg: 0.5rem;
 
   /* Inputs */
-  --radius-input: 0.375rem; /* 6px */
-  --radius-input-sm: 0.25rem; /* 4px */
-  --radius-input-lg: 0.5rem; /* 8px */
+  --radius-input: 0.375rem;
+  --radius-input-sm: 0.25rem;
+  --radius-input-lg: 0.5rem;
 
   /* Cards */
-  --radius-card: 0.5rem; /* 8px */
-  --radius-card-sm: 0.375rem; /* 6px */
-  --radius-card-lg: 0.75rem; /* 12px */
+  --radius-card: 0.5rem;
+  --radius-card-sm: 0.375rem;
+  --radius-card-lg: 0.75rem;
+
+  /* ==========================================================================
+     OPACITY SYSTEM
+     ========================================================================== */
+
+  --opacity-muted: 0.6;
+  --opacity-disabled: 0.5;
 }
 
 @layer base {
@@ -211,156 +257,4 @@ button {
 
 .animate-toast-exit {
   animation: toast-exit 0.2s ease-in forwards;
-}
-
-/* =============================================================================
-   Custom Utilities
-   ============================================================================= */
-@layer utilities {
-  /* Spacing utilities */
-  .px-list {
-    padding-inline: var(--spacing-list-x);
-  }
-  .py-list {
-    padding-block: var(--spacing-list-y);
-  }
-
-  .px-layout {
-    padding-inline: var(--spacing-layout-x);
-  }
-  .py-layout {
-    padding-block: var(--spacing-layout-y);
-  }
-
-  .px-wrapped {
-    padding-inline: var(--spacing-wrapped-x);
-  }
-  .py-wrapped {
-    padding-block: var(--spacing-wrapped-y);
-  }
-  .py-wrapped-title {
-    padding-block: var(--spacing-wrapped-title-y);
-  }
-
-  /* Typography utilities */
-  .text-ui {
-    font-size: var(--text-ui);
-    line-height: var(--text-ui-line-height);
-  }
-  .font-ui-weight {
-    font-weight: var(--font-ui-weight);
-  }
-
-  .text-page-title {
-    font-size: var(--text-page-title);
-    line-height: var(--text-page-title-line-height);
-  }
-  .font-page-title-weight {
-    font-weight: var(--font-page-title-weight);
-  }
-
-  .text-page-description {
-    font-size: var(--text-page-description);
-    line-height: var(--text-page-description-line-height);
-  }
-
-  .text-drawer-title {
-    font-size: var(--text-drawer-title);
-    line-height: var(--text-drawer-title-line-height);
-  }
-  .font-drawer-title-weight {
-    font-weight: var(--font-drawer-title-weight);
-  }
-
-  .text-drawer-description {
-    font-size: var(--text-drawer-description);
-    line-height: var(--text-drawer-description-line-height);
-  }
-
-  /* Control sizing utilities */
-  .h-control {
-    height: var(--height-control);
-  }
-  .h-control-sm {
-    height: var(--height-control-sm);
-  }
-  .h-control-lg {
-    height: var(--height-control-lg);
-  }
-
-  .px-button-x {
-    padding-inline: var(--spacing-button-x);
-  }
-  .px-button-x-sm {
-    padding-inline: var(--spacing-button-x-sm);
-  }
-  .px-button-x-lg {
-    padding-inline: var(--spacing-button-x-lg);
-  }
-
-  .px-input-x {
-    padding-inline: var(--spacing-input-x);
-  }
-  .px-input-x-sm {
-    padding-inline: var(--spacing-input-x-sm);
-  }
-  .px-input-x-lg {
-    padding-inline: var(--spacing-input-x-lg);
-  }
-
-  /* Border radius utilities */
-  .rounded-button {
-    border-radius: var(--radius-button);
-  }
-  .rounded-button-sm {
-    border-radius: var(--radius-button-sm);
-  }
-  .rounded-button-lg {
-    border-radius: var(--radius-button-lg);
-  }
-
-  .rounded-input {
-    border-radius: var(--radius-input);
-  }
-  .rounded-input-sm {
-    border-radius: var(--radius-input-sm);
-  }
-  .rounded-input-lg {
-    border-radius: var(--radius-input-lg);
-  }
-
-  .rounded-card {
-    border-radius: var(--radius-card);
-  }
-  .rounded-card-sm {
-    border-radius: var(--radius-card-sm);
-  }
-  .rounded-card-lg {
-    border-radius: var(--radius-card-lg);
-  }
-
-  /* Opacity utilities */
-  .opacity-muted {
-    opacity: var(--opacity-muted);
-  }
-  .opacity-disabled {
-    opacity: var(--opacity-disabled);
-  }
-
-  /* Checkbox/Radio checked state utilities */
-  .checked\:bg-primary-solid:checked {
-    background-color: var(--color-primary-solid);
-  }
-  .checked\:border-primary-solid:checked {
-    border-color: var(--color-primary-solid);
-  }
-  .indeterminate\:bg-primary-solid:indeterminate {
-    background-color: var(--color-primary-solid);
-  }
-  .indeterminate\:border-primary-solid:indeterminate {
-    border-color: var(--color-primary-solid);
-  }
-  .focus-visible\:outline-primary-solid:focus-visible {
-    outline-color: var(--color-primary-solid);
-  }
 }

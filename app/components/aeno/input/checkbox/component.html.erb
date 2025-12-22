@@ -1,6 +1,6 @@
 <% if description %>
-  <div class="flex gap-3">
-    <div class="flex h-6 shrink-0 items-center">
+  <div class="flex gap-gap-lg">
+    <div class="flex h-icon-md shrink-0 items-center">
       <%= render Aeno::Checkbox::Component.new(
         name: name,
         value: value,
@@ -11,13 +11,13 @@
       ) %>
     </div>
     <div class="text-sm/6">
-      <%= label_tag(checkbox_id, label, class: "font-medium text-gray-900 dark:text-white") %>
-      <p id="<%= checkbox_id %>-description" class="text-gray-500 dark:text-gray-400"><%= description %></p>
+      <%= label_tag(checkbox_id, label, class: "font-weight-medium text-foreground") %>
+      <p id="<%= checkbox_id %>-description" class="text-muted-foreground"><%= description %></p>
     </div>
   </div>
 <% else %>
-  <div class="flex items-center gap-x-3">
-    <div class="flex h-6 shrink-0 items-center">
+  <div class="flex items-center gap-x-gap-lg">
+    <div class="flex h-icon-md shrink-0 items-center">
       <%= render Aeno::Checkbox::Component.new(
         name: name,
         value: value,
@@ -26,6 +26,6 @@
         id: checkbox_id
       ) %>
     </div>
-    <%= label_tag(checkbox_id, label, class: "block text-sm/6 font-medium text-gray-900 dark:text-white") %>
+    <%= label_tag(checkbox_id, label, class: "block text-sm/6 font-weight-medium text-foreground") %>
   </div>
 <% end %>

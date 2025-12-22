@@ -20,13 +20,13 @@ module Aeno::Button
           inline-flex
           items-center
           justify-center
-          gap-2
+          gap-gap
           text-ui
-          font-ui-weight
+          font-weight-ui
           cursor-pointer
           [&>svg]:flex-shrink-0
-          [&>svg]:w-4
-          [&>svg]:h-4
+          [&>svg]:w-icon-sm
+          [&>svg]:h-icon-sm
         ]
       end
 
@@ -47,7 +47,7 @@ module Aeno::Button
 
         size do
           xs { "h-control-sm px-button-x-sm rounded-button-sm" }
-          xl { "h-control-lg px-button-x-lg rounded-button-lg [&>svg]:w-6 [&>svg]:h-6" }
+          xl { "h-control-lg px-button-x-lg rounded-button-lg [&>svg]:w-icon-md [&>svg]:h-icon-md" }
         end
       end
 

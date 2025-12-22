@@ -7,7 +7,7 @@ module Aeno
       option :orientation, default: -> { :horizontal }
 
       style :container do
-        base { "relative my-6" }
+        base { "relative my-margin-xl" }
 
         variants do
           orientation do
@@ -33,8 +33,8 @@ module Aeno
 
         variants do
           orientation do
-            horizontal { "px-2" }
-            vertical { "py-2" }
+            horizontal { "px-pad-sm" }
+            vertical { "py-pad-sm" }
           end
         end
       end
