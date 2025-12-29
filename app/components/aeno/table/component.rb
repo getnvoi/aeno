@@ -590,37 +590,41 @@ module Aeno::Table
 
       # EMPTY STATE
       b.example(:empty_state, title: "Empty State") do |e|
-        e.preview do |table|
-          table.with_empty_state do
-            ui("empty", icon: "inbox") do |empty|
-              empty.with_title { "No items found" }
-              empty.with_description { "Try creating a new item to get started" }
-              empty.with_action { ui("button", label: "Create Item", variant: :default) }
-            end
-          end
+        e.preview_template template: <<~TEMPLATE
+          <%= render(Aeno::Table::Component.new) do |table| %>
+            <% table.with_empty_state do %>
+              <%= ui("empty", icon: "inbox") do |empty| %>
+                <% empty.with_title { "No items found" } %>
+                <% empty.with_description { "Try creating a new item to get started" } %>
+                <% empty.with_action { ui("button", label: "Create Item", variant: :default) } %>
+              <% end %>
+            <% end %>
 
-          table.with_header do |h|
-            h.with_column { "Name" }
-            h.with_column { "Email" }
-          end
-        end
+            <% table.with_header do |h| %>
+              <% h.with_column { "Name" } %>
+              <% h.with_column { "Email" } %>
+            <% end %>
+          <% end %>
+        TEMPLATE
 
-        e.preview do |table|
-          table.with_filter(type: :search, name: "q", placeholder: "Search...")
-          table.with_filter(type: :clear_filters)
+        e.preview_template template: <<~TEMPLATE
+          <%= render(Aeno::Table::Component.new) do |table| %>
+            <% table.with_filter(type: :search, name: "q", placeholder: "Search...") %>
+            <% table.with_filter(type: :clear_filters) %>
 
-          table.with_empty_state do
-            ui("empty", icon: "search") do |empty|
-              empty.with_title { "No results found" }
-              empty.with_description { "Try adjusting your search or filters" }
-            end
-          end
+            <% table.with_empty_state do %>
+              <%= ui("empty", icon: "search") do |empty| %>
+                <% empty.with_title { "No results found" } %>
+                <% empty.with_description { "Try adjusting your search or filters" } %>
+              <% end %>
+            <% end %>
 
-          table.with_header do |h|
-            h.with_column { "Name" }
-            h.with_column { "Email" }
-          end
-        end
+            <% table.with_header do |h| %>
+              <% h.with_column { "Name" } %>
+              <% h.with_column { "Email" } %>
+            <% end %>
+          <% end %>
+        TEMPLATE
       end
     end
   end

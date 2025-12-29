@@ -5,4 +5,7 @@ Aeno::Engine.routes.draw do
   namespace :examples do
     resources :contacts
   end
+
+  # Generic confirm dialog
+  get "confirm", to: "application#confirm", as: :confirm
 end

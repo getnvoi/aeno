@@ -78,6 +78,26 @@ class Aeno::FormBuilder < ActionView::Helpers::FormBuilder
     field(:text_area_ai, name, options)
   end
 
+  def toggle_field(name, options = {})
+    field(:toggle, name, options)
+  end
+
+  def number_field(name, options = {})
+    field(:number, name, options)
+  end
+
+  def otp_field(name, options = {})
+    field(:otp, name, options)
+  end
+
+  def datepicker_field(name, options = {})
+    field(:datepicker, name, options)
+  end
+
+  def phone_field(name, options = {})
+    field(:phone, name, options)
+  end
+
   private
 
     def resolve_name(name)

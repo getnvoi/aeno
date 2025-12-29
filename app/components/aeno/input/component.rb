@@ -17,6 +17,26 @@ module Aeno::Input
     option(:selected_value, optional: true)
     option(:selected_values, optional: true)
 
+    # Toggle options
+    option(:checked, optional: true)
+
+    # Number options
+    option(:min, optional: true)
+    option(:max, optional: true)
+    option(:step, optional: true)
+
+    # OTP options
+    option(:length, optional: true)
+    option(:pattern, optional: true)
+
+    # Datepicker options
+    option(:locales, optional: true)
+    option(:date_format, optional: true)
+
+    # Phone options
+    option(:default_country, optional: true)
+    option(:preferred_countries, optional: true)
+
     def input_component
       "Aeno::Input::#{type.to_s.camelize}::Component".constantize
     end
@@ -29,6 +49,16 @@ module Aeno::Input
       extra_options[:searchable] = searchable unless searchable.nil?
       extra_options[:selected_value] = selected_value unless selected_value.nil?
       extra_options[:selected_values] = selected_values unless selected_values.nil?
+      extra_options[:checked] = checked unless checked.nil?
+      extra_options[:min] = min unless min.nil?
+      extra_options[:max] = max unless max.nil?
+      extra_options[:step] = step unless step.nil?
+      extra_options[:length] = length unless length.nil?
+      extra_options[:pattern] = pattern unless pattern.nil?
+      extra_options[:locales] = locales unless locales.nil?
+      extra_options[:date_format] = date_format unless date_format.nil?
+      extra_options[:default_country] = default_country unless default_country.nil?
+      extra_options[:preferred_countries] = preferred_countries unless preferred_countries.nil?
 
       nested = input_component.new(name:, id:, disabled:, required:, data:, **extra_options)
 
@@ -231,6 +261,33 @@ module Aeno::Input
             dropdown.with_option(value: "3", label: "Option 3")
             dropdown.with_option(value: "4", label: "Option 4")
           end
+        end
+
+        b.example(:toggle, title: "Toggle Switch") do |e|
+          e.preview type: :toggle, name: "enabled", label: "Enable Feature"
+          e.preview type: :toggle, name: "enabled", label: "Enable Feature", value: true
+          e.preview type: :toggle, name: "enabled", label: "Enable Feature", disabled: true
+        end
+
+        b.example(:number, title: "Number Input") do |e|
+          e.preview type: :number, name: "quantity", label: "Quantity"
+          e.preview type: :number, name: "quantity", label: "Quantity", value: 5
+          e.preview type: :number, name: "price", label: "Price", helper_text: "Enter amount"
+        end
+
+        b.example(:otp, title: "OTP Input") do |e|
+          e.preview type: :otp, name: "code", label: "Verification Code"
+          e.preview type: :otp, name: "code", label: "Verification Code", helper_text: "Enter 6-digit code"
+        end
+
+        b.example(:datepicker, title: "Date Picker") do |e|
+          e.preview type: :datepicker, name: "birth_date", label: "Birth Date"
+          e.preview type: :datepicker, name: "birth_date", label: "Birth Date", helper_text: "Select your date of birth"
+        end
+
+        b.example(:phone, title: "Phone Input") do |e|
+          e.preview type: :phone, name: "phone", label: "Phone Number"
+          e.preview type: :phone, name: "phone", label: "Phone Number", helper_text: "International format"
         end
       end
   end

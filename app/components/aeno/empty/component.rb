@@ -33,27 +33,33 @@ module Aeno::Empty
       end
 
       b.example(:with_actions, title: "With Actions") do |e|
-        e.preview do |empty|
-          empty.with_title { "No items found" }
-          empty.with_description { "Try creating a new item to get started" }
-          empty.with_action { ui("button", label: "Create Item", variant: :default) }
-        end
+        e.preview_template template: <<~TEMPLATE
+          <%= render(Aeno::Empty::Component.new) do |empty| %>
+            <% empty.with_title { "No items found" } %>
+            <% empty.with_description { "Try creating a new item to get started" } %>
+            <% empty.with_action { ui("button", label: "Create Item", variant: :default) } %>
+          <% end %>
+        TEMPLATE
 
-        e.preview icon: "inbox" do |empty|
-          empty.with_title { "No items found" }
-          empty.with_description { "Try creating a new item to get started" }
-          empty.with_action { ui("button", label: "Create Item", variant: :default) }
-          empty.with_action { ui("button", label: "Learn More", variant: :outline) }
-        end
+        e.preview_template icon: "inbox", template: <<~TEMPLATE
+          <%= render(Aeno::Empty::Component.new(icon: "inbox")) do |empty| %>
+            <% empty.with_title { "No items found" } %>
+            <% empty.with_description { "Try creating a new item to get started" } %>
+            <% empty.with_action { ui("button", label: "Create Item", variant: :default) } %>
+            <% empty.with_action { ui("button", label: "Learn More", variant: :outline) } %>
+          <% end %>
+        TEMPLATE
       end
 
       b.example(:complete, title: "Complete Example") do |e|
-        e.preview icon: "inbox" do |empty|
-          empty.with_title { "No invites yet" }
-          empty.with_description { "Start inviting team members to collaborate on projects" }
-          empty.with_action { ui("button", label: "Send Invite", variant: :default, icon: "mail") }
-          empty.with_action { ui("button", label: "Import from CSV", variant: :outline, icon: "upload") }
-        end
+        e.preview_template icon: "inbox", template: <<~TEMPLATE
+          <%= render(Aeno::Empty::Component.new(icon: "inbox")) do |empty| %>
+            <% empty.with_title { "No invites yet" } %>
+            <% empty.with_description { "Start inviting team members to collaborate on projects" } %>
+            <% empty.with_action { ui("button", label: "Send Invite", variant: :default, icon: "mail") } %>
+            <% empty.with_action { ui("button", label: "Import from CSV", variant: :outline, icon: "upload") } %>
+          <% end %>
+        TEMPLATE
       end
     end
   end

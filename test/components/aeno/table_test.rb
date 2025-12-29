@@ -115,7 +115,7 @@ class Aeno::TableTest < ViewComponent::TestCase
     assert first_th[:class].include?("sticky")
     assert first_th[:class].include?("left-0")
     assert first_th[:class].include?("z-20")
-    assert first_th[:class].include?("bg-white")
+    assert first_th[:class].include?("bg-background-elevated")
 
     # Other header columns should not be sticky
     other_th = page.all("th")[1]

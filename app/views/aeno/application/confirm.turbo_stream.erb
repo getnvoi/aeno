@@ -1,0 +1,27 @@
+<%= turbo_stream.append "dialogs-container" do %>
+  <%= ui("dialog",
+    id: "confirm-dialog-#{SecureRandom.hex(4)}",
+    title: @title,
+    width: "w-96"
+  ) do |dialog| %>
+    <% dialog.with_footer do %>
+      <%= ui("button",
+        label: @cancel_text,
+        variant: :outline,
+        data: { action: "click->aeno--dialog#close" }
+      ) %>
+
+      <%= ui("button",
+        label: @confirm_text,
+        variant: @variant.to_sym,
+        href: @confirm_url,
+        method: @confirm_method,
+        data: { turbo_frame: "_top" }
+      ) %>
+    <% end %>
+
+    <div class="p-pad-lg">
+      <p class="text-ui text-foreground"><%= @message %></p>
+    </div>
+  <% end %>
+<% end %>

@@ -1,5 +1,5 @@
 <% if label.present? %>
-  <div class="<%= style(:container, orientation:) %>">
+  <div class="<%= style(:container, orientation:) %>" data-controller="<%= controller_name %>">
     <% if orientation == :horizontal %>
       <div class="absolute inset-0 flex items-center">
         <div class="<%= style(:line, orientation:) %>"></div>
@@ -13,5 +13,5 @@
     <% end %>
   </div>
 <% else %>
-  <div class="<%= style(:line, orientation:) %> my-margin-xl"></div>
+  <div class="<%= style(:line, orientation:) %> my-margin-xl" data-controller="<%= controller_name %>"></div>
 <% end %>

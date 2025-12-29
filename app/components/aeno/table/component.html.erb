@@ -21,15 +21,17 @@
   <% end %>
 
   <%# Table or Empty State %>
-  <% if rows.any? %>
+  <% if header? || rows.any? %>
     <div class="overflow-x-auto min-w-0">
       <table class="<%= table_classes %>" <%= "id=\"#{id}\"" if id %>>
         <%= header if header? %>
-        <tbody class="bg-background-elevated divide-y divide-border">
-          <% rows.each do |row| %>
-            <%= row %>
-          <% end %>
-        </tbody>
+        <% if rows.any? %>
+          <tbody class="bg-background-elevated divide-y divide-border">
+            <% rows.each do |row| %>
+              <%= row %>
+            <% end %>
+          </tbody>
+        <% end %>
       </table>
     </div>
   <% elsif empty_state? %>

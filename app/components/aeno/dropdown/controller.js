@@ -1,23 +1,25 @@
 import { Controller } from "@hotwired/stimulus";
+import { computePosition, flip, shift, offset, autoUpdate } from "@floating-ui/dom";
 
 export default class extends Controller {
   static targets = ["menu", "search", "option", "empty", "trigger"];
   static values = {
     open: { type: Boolean, default: false },
     searchable: { type: Boolean, default: false },
+    placement: { type: String, default: "bottom-end" },
+    offset: { type: Number, default: 8 },
   };
 
   connect() {
     this.closeOnClickOutside = this.closeOnClickOutside.bind(this);
     this.handleKeydown = this.handleKeydown.bind(this);
-    this.positionMenu = this.positionMenu.bind(this);
+    this.cleanup = null;
   }
 
   disconnect() {
+    this.stopPositioning();
     document.removeEventListener("click", this.closeOnClickOutside);
     document.removeEventListener("keydown", this.handleKeydown);
-    window.removeEventListener("scroll", this.positionMenu, true);
-    window.removeEventListener("resize", this.positionMenu);
   }
 
   toggle(event) {
@@ -28,12 +30,12 @@ export default class extends Controller {
   open() {
     this.openValue = true;
     this.menuTarget.classList.remove("hidden");
-    this.positionMenu();
 
     document.addEventListener("click", this.closeOnClickOutside);
     document.addEventListener("keydown", this.handleKeydown);
-    window.addEventListener("scroll", this.positionMenu, true);
-    window.addEventListener("resize", this.positionMenu);
+
+    // Start auto-positioning with Floating UI
+    this.startPositioning();
 
     if (this.searchableValue && this.hasSearchTarget) {
       this.searchTarget.value = "";
@@ -42,38 +44,50 @@ export default class extends Controller {
     }
   }
 
-  positionMenu() {
-    if (!this.hasTriggerTarget) return;
+  startPositioning() {
+    if (!this.hasTriggerTarget || !this.hasMenuTarget) return;
 
-    const triggerRect = this.triggerTarget.getBoundingClientRect();
-    const menuRect = this.menuTarget.getBoundingClientRect();
+    // autoUpdate automatically handles scroll, resize, and DOM changes
+    this.cleanup = autoUpdate(
+      this.triggerTarget,
+      this.menuTarget,
+      () => this.updatePosition()
+    );
+  }
 
-    // Position below trigger, aligned to right
-    let top = triggerRect.bottom + 8; // 8px gap (mt-2)
-    let left = triggerRect.right - menuRect.width;
+  async updatePosition() {
+    if (!this.hasTriggerTarget || !this.hasMenuTarget) return;
 
-    // Ensure menu doesn't go off screen
-    if (left < 8) left = 8;
-    if (left + menuRect.width > window.innerWidth - 8) {
-      left = window.innerWidth - menuRect.width - 8;
+    const { x, y } = await computePosition(this.triggerTarget, this.menuTarget, {
+      placement: this.placementValue,
+      middleware: [
+        offset(this.offsetValue),
+        flip({
+          fallbackPlacements: ["top-end", "bottom-start", "top-start"],
+        }),
+        shift({ padding: 8 }),
+      ],
+    });
+
+    Object.assign(this.menuTarget.style, {
+      left: `${x}px`,
+      top: `${y}px`,
+    });
+  }
+
+  stopPositioning() {
+    if (this.cleanup) {
+      this.cleanup();
+      this.cleanup = null;
     }
-
-    // If menu goes below viewport, show above trigger
-    if (top + menuRect.height > window.innerHeight - 8) {
-      top = triggerRect.top - menuRect.height - 8;
-    }
-
-    this.menuTarget.style.top = `${top}px`;
-    this.menuTarget.style.left = `${left}px`;
   }
 
   close() {
     this.openValue = false;
     this.menuTarget.classList.add("hidden");
+    this.stopPositioning();
     document.removeEventListener("click", this.closeOnClickOutside);
     document.removeEventListener("keydown", this.handleKeydown);
-    window.removeEventListener("scroll", this.positionMenu, true);
-    window.removeEventListener("resize", this.positionMenu);
   }
 
   closeOnClickOutside(event) {

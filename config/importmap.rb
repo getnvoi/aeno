@@ -3,6 +3,15 @@ pin "aeno/application"
 pin "@hotwired/stimulus", to: "stimulus.min.js"
 pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
 
+# External dependencies
+pin "@floating-ui/dom", to: "https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.7.4/+esm"
+pin "@floating-ui/core", to: "https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.9/+esm"
+pin "@floating-ui/utils", to: "https://cdn.jsdelivr.net/npm/@floating-ui/utils@0.3.0/+esm"
+pin "@floating-ui/utils/dom", to: "https://cdn.jsdelivr.net/npm/@floating-ui/utils@0.3.0/dom/+esm"
+pin "stimulus-datepicker", to: "https://ga.jspm.io/npm:stimulus-datepicker@1.0.9/dist/index.js"
+pin "intl-tel-input", to: "https://cdn.jsdelivr.net/npm/intl-tel-input@25.2.0/build/js/intlTelInput.min.js"
+pin "intl-tel-input/utils", to: "https://cdn.jsdelivr.net/npm/intl-tel-input@25.2.0/build/js/utils.js"
+
 pin_all_from(
   Aeno::Engine.root.join("app/javascript/aeno/controllers"),
   under: "aeno/controllers",
